@@ -33,8 +33,6 @@ public class HttpHandlerUtils {
      * @return
      */
     public static String parseAuthenticationToToken(User user) {
-//        User user = (User) authentication.getPrincipal();
-
         String username = user.getUsername();
         StringBuffer role = new StringBuffer();
 
