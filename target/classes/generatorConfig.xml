@@ -7,6 +7,13 @@
 	
   <classPathEntry location="E:\javaEE\dingding\software\apache-maven-3.3.9\repository\mysql\mysql-connector-java\8.0.19\mysql-connector-java-8.0.19.jar" />
   <context id="DB2Tables" targetRuntime="MyBatis3">
+
+  <!-- 生成一对一配置 -->
+  <plugin type="cc.bandaotixi.plugins.OneToOnePlugin"></plugin>
+  <!-- 生成一对多配置 -->
+  <plugin type="cc.bandaotixi.plugins.OneToManyPlugin"></plugin>
+
+
     <!--自动生成的bean对象，是否实现序列化接口-->
   	<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
       <!--自动生成的bean对象，是否重写ToString()-->
@@ -14,7 +21,7 @@
   	<commentGenerator>
   		 <property name="suppressDate" value="true"/>
 <!--        解决方法1，注释下面-->
-<!--          <property name="suppressAllComments" value="true"/>-->
+          <property name="suppressAllComments" value="true"/>
   	</commentGenerator>
   
   	<!-- 注意！如果要重新生成pojo类，务必改成项目组数据库，用户名密码 -->
@@ -50,7 +57,9 @@
 	<table tableName="iteminfo" domainObjectName="ItemInfo">
         <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
     </table>
-	<table tableName="user" domainObjectName="User"></table>
+	<table tableName="user" domainObjectName="User">
+        <oneToOne mappingTable="role" column="id" joinColumn="role_id" />
+    </table>
 	<table tableName="role" domainObjectName="Role"></table>
 <!--	<table tableName="cms_article" domainObjectName="Article">-->
 <!--		<columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>-->

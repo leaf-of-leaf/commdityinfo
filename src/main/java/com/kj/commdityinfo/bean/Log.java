@@ -40,7 +40,11 @@ public class Log implements Serializable {
      */
     private String token;
     /**
-     * 访问的
+     * 完成访问消耗的时间
      */
     private Long spendTime;
+    /**
+     * 访问时的参数
+     */
+    private String params;
 }

@@ -6,13 +6,16 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.NativeWebRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 
 /**
+ * 日志切面信息
  * @author kj
  * @Date 2020/5/6 15:15
  * @Version 1.0
@@ -25,45 +28,42 @@ import javax.servlet.http.HttpServletRequest;
 @Order(1)
 public class LogMonitor {
 
-    @Pointcut("execution(public * com.kj.commdityinfo.controller.DemoController.*(..)))")
+    @Autowired(required = false)
+    private NativeWebRequest nativeWebRequest;
+
+    @Pointcut("execution(public * com.kj.commdityinfo.controller.*.*(..)))")
     public void pointCutMethod(){ }
 
     @Around("pointCutMethod()")
-    public void doAround(ProceedingJoinPoint pjp){
-
+    public Object doAround(ProceedingJoinPoint pjp){
+        Object result = null;
         Log log = new Log();
-        HttpServletRequest request = null;
+        HttpServletRequest request = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
         //获取参数
         Object[] args = pjp.getArgs();
-        //哪个用户进行了操作
-        if(args.length > 0){
-            for(Object o : args) {
-                if(o instanceof NativeWebRequest){
-                    NativeWebRequest nativeWebRequest = (NativeWebRequest) o;
-                    request = nativeWebRequest.getNativeRequest(HttpServletRequest.class);
-                    String authorization = request.getHeader(JwtUtils.TOKEN_HEADER);
-                    String token = authorization.replaceAll(JwtUtils.TOKEN_PREFIX, "");
-                    log.setToken(token);
-                }
-            }
-        }
+        //设置token
+        String authorization = request.getHeader(JwtUtils.TOKEN_HEADER);
+        String token = authorization.replaceAll(JwtUtils.TOKEN_PREFIX, "");
+        log.setToken(token);
         try{
                 //前置
             Long startTime = System.currentTimeMillis();
-            pjp.proceed(args);
+            result = pjp.proceed(args);
             Long endTime = System.currentTimeMillis();
                 //后置
             log.setUrl(request.getRequestURI());
             log.setIp(request.getRemoteAddr());
             log.setPort(request.getRemotePort());
             log.setSpendTime(endTime - startTime);
+            log.setParams(Arrays.toString(args));
         } catch(Throwable t){
                 //异常通知
             log.setException(t.getMessage());
         } finally{
                 //最终通知
         }
-
         System.out.println(log);
+        //要返回结果，不然springmvc返回null
+        return result;
     }
 }
