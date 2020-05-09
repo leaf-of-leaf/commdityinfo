@@ -54,15 +54,26 @@
     </javaClientGenerator>
 
 	<!-- 映射配置 -->
-	<table tableName="iteminfo" domainObjectName="ItemInfo">
+      <table tableName="nav_item" domainObjectName="NavItem">
+        <oneToMany mappingTable="cate_item" column="nav_id" joinColumn="nav_id" />
+      </table>
+
+      <table tableName="cate_item" domainObjectName="CateItem">
+          <oneToOne mappingTable="nav_item" column="nav_id" joinColumn="nav_id" />
+      </table>
+
+      <table tableName="comment" domainObjectName="Comment">
+          <oneToOne mappingTable="item" column="item_id" joinColumn="item_id" />
+          <oneToOne mappingTable="user" column="user_id" joinColumn="user_id" />
+      </table>
+
+	<table tableName="item" domainObjectName="Item">
         <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+        <oneToOne mappingTable="cate_item" column="cate_id" joinColumn="cate_id" />
     </table>
 	<table tableName="user" domainObjectName="User">
-        <oneToOne mappingTable="role" column="id" joinColumn="role_id" />
+        <oneToOne mappingTable="role" column="role_id" joinColumn="role_id" />
     </table>
 	<table tableName="role" domainObjectName="Role"></table>
-<!--	<table tableName="cms_article" domainObjectName="Article">-->
-<!--		<columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>-->
-<!--	</table>-->
   </context>
 </generatorConfiguration>

@@ -3,8 +3,8 @@ package com.kj.commdityinfo.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ItemInfo implements Serializable {
-    private Integer id;
+public class Item implements Serializable {
+    private Integer itemId;
 
     private String name;
 
@@ -26,14 +26,18 @@ public class ItemInfo implements Serializable {
 
     private String img;
 
+    private Integer cateId;
+
+    private CateItem cateItem;
+
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
+    public Integer getItemId() {
+        return itemId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
     }
 
     public String getName() {
@@ -116,13 +120,29 @@ public class ItemInfo implements Serializable {
         this.img = img == null ? null : img.trim();
     }
 
+    public Integer getCateId() {
+        return cateId;
+    }
+
+    public void setCateId(Integer cateId) {
+        this.cateId = cateId;
+    }
+
+    public CateItem getCateItem() {
+        return cateItem;
+    }
+
+    public void setCateItem(CateItem cateItem) {
+        this.cateItem=cateItem;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
+        sb.append(", itemId=").append(itemId);
         sb.append(", name=").append(name);
         sb.append(", location=").append(location);
         sb.append(", saleTime=").append(saleTime);
@@ -133,6 +153,8 @@ public class ItemInfo implements Serializable {
         sb.append(", priceLink=").append(priceLink);
         sb.append(", isexists=").append(isexists);
         sb.append(", img=").append(img);
+        sb.append(", cateId=").append(cateId);
+        sb.append(", cateItem=").append(cateItem);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -38,7 +38,7 @@ public class UserController {
 
     @PostMapping("/saveUser")
     public Message<String> saveUser(User user){
-        Integer userId = user.getId();
+        Integer userId = user.getUserId();
         try{
             userService.saveUser(user);
         } catch (Exception e){

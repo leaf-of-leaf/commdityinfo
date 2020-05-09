@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(User user) throws Exception{
-        Integer userId = user.getId();
+        Integer userId = user.getUserId();
         if(userId <= 0){
             throw new UserException("id不正确");
         }

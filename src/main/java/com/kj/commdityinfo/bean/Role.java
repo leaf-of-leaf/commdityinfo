@@ -3,18 +3,18 @@ package com.kj.commdityinfo.bean;
 import java.io.Serializable;
 
 public class Role implements Serializable {
-    private Integer id;
+    private Integer roleId;
 
     private String name;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public String getName() {
@@ -31,7 +31,7 @@ public class Role implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
+        sb.append(", roleId=").append(roleId);
         sb.append(", name=").append(name);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

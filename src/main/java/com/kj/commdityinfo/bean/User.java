@@ -1,13 +1,10 @@
 package com.kj.commdityinfo.bean;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
-    private Integer id;
+    private Integer userId;
 
     private String name;
 
@@ -25,18 +22,16 @@ public class User implements Serializable {
 
     private Integer roleId;
 
-    @ApiModelProperty(hidden=true)
-    @JsonIgnore
     private Role role;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -117,7 +112,7 @@ public class User implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
+        sb.append(", userId=").append(userId);
         sb.append(", name=").append(name);
         sb.append(", password=").append(password);
         sb.append(", address=").append(address);
