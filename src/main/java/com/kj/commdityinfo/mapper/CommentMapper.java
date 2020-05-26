@@ -33,4 +33,6 @@ public interface CommentMapper {
     int updateByPrimaryKeyWithBLOBs(Comment record);
 
     int updateByPrimaryKey(Comment record);
+
+    Integer isExistsByCommentId(Integer commentId);
 }

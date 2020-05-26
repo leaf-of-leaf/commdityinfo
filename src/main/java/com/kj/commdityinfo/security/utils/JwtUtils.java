@@ -29,7 +29,7 @@ public class JwtUtils {
      * 可用时间
      * 有效期-可用时间=刷新时间段
      */
-    public static final long ENABLETIME = 1000 * 60 * 10;
+    public static final long ENABLETIME = 1000 * 60;
 
     public static final String APPSECRET_KEY = "congge_secret";
 

@@ -2,13 +2,13 @@ package com.kj.commdityinfo.service.impl;
 
 import com.kj.commdityinfo.bean.User;
 import com.kj.commdityinfo.bean.UserExample;
-import com.kj.commdityinfo.exception.UserException;
+import com.kj.commdityinfo.exception.SystemException;
 import com.kj.commdityinfo.mapper.UserMapper;
 import com.kj.commdityinfo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     public void saveUser(User user) throws Exception{
         Integer userId = user.getUserId();
         if(userId <= 0){
-            throw new UserException("id不正确");
+            throw new SystemException("userId不正确");
         }
         if(userId == null){
             userMapper.insertSelective(user);
@@ -52,16 +52,29 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(Integer userId) {
+    public User findUserById(Integer userId) throws Exception {
+        if(userId == null){
+            throw new SystemException("userId为空");
+        }
         return userMapper.selectByPrimaryKey(userId);
     }
 
     @Override
-    public User findUserByName(String name) {
+    public User findUserByName(String name) throws Exception {
+        if(StringUtils.isEmpty(name)){
+            throw new SystemException("name为空");
+        }
         UserExample userExample = new UserExample();
         userExample.createCriteria().andNameEqualTo(name);
         List<User> users = userMapper.selectByExample(userExample);
         //name为unique,所以只会为1
         return users.get(0);
     }
+
+    @Override
+    public User getUserInfo() throws Exception {
+//       this.findUserByName()
+        return null;
+    }
+
 }

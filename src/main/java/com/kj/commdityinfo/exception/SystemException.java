@@ -5,8 +5,8 @@ package com.kj.commdityinfo.exception;
  * @Date 2020/5/7 16:26
  * @Version 1.0
  */
-public class UserException extends RuntimeException {
-    public UserException(String message) {
+public class SystemException extends RuntimeException {
+    public SystemException(String message) {
         super(message);
     }
 }

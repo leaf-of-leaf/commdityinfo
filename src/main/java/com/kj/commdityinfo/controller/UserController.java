@@ -49,11 +49,19 @@ public class UserController {
 
     @GetMapping("/findUserById")
     public Message<User> findUserById(Integer userId){
-        return MessageUtil.success(userService.findUserById(userId));
+        try{
+            return MessageUtil.success(userService.findUserById(userId));
+        } catch (Exception e){
+            return MessageUtil.error(400,e.getMessage());
+        }
     }
 
     @GetMapping("/findUserByName")
     public Message<User> findUserByName(String name){
-        return MessageUtil.success(userService.findUserByName(name));
+        try{
+            return MessageUtil.success(userService.findUserByName(name));
+        } catch (Exception e){
+            return MessageUtil.error(400,e.getMessage());
+        }
     }
 }

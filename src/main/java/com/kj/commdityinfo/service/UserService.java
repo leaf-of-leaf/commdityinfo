@@ -34,13 +34,20 @@ public interface UserService {
      * @param userId
      * @return
      */
-    User findUserById(Integer userId);
+    User findUserById(Integer userId) throws Exception;
 
     /**
      * 通过name查询User
      * @param userId
      * @return
      */
-    User findUserByName(String name);
+    User findUserByName(String name) throws Exception;
 
+
+    /**
+     * 获取当前登录的用户信息
+     * @return
+     * @throws Exception
+     */
+    User getUserInfo() throws Exception;
 }
