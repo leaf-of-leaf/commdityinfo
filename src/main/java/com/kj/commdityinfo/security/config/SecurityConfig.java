@@ -45,6 +45,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private ValidataCodeFilter validataCodeFilter;
 
+    @Autowired
+    private SmsUserDetailsService smsUserDetailsService;
+
     @Autowired(required = false)
     private DaoAuthenticationProvider daoAuthenticationProvider;
 
@@ -53,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //需要添加添加配置，不然authenticationManager()返回为null
         //同时可以配置provder和UserDeatisService
         SmsAuthenticationProvider smsAuthenticationProvider = new SmsAuthenticationProvider();
-        smsAuthenticationProvider.setUserDetailsService(new SmsUserDetailsService());
+        smsAuthenticationProvider.setUserDetailsService(smsUserDetailsService);
         auth.authenticationProvider(smsAuthenticationProvider);
         auth.userDetailsService(myUserDetailsService);
 

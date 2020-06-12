@@ -2,52 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea5dc53c-8bf7-49c1-a0ba-b81162ea884d" name="Default Changelist" comment="2020/5/5 17:29 &#10;master,最初版">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_50.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alipay_sdk_alipay_sdk_java_4_9_124_ALL.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zhenzikj_zhenzisms_2_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_62.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/PayService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/bean/SmsAuthenticationToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/SmsAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/provider/SmsAuthenticationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/ZhenziSmsUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/AlipayConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commdityinfo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/commdityinfo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/aop/LogMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/aop/LogMonitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/ValidataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/ValidataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/JwtAuthorityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/JwtAuthorityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/ValidataCodeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/ValidataCodeFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/handler/SuccessAuthenticationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/handler/SuccessAuthenticationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/HttpHandlerUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/HttpHandlerUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/GeneratorMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/GeneratorMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/aop/LogMonitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/aop/LogMonitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/exception/UserException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/controller/IndexController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/controller/ValidataController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/controller/ValidataController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/filter/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/filter/JwtAuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/filter/JwtAuthorityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/filter/JwtAuthorityFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/filter/ValidataCodeFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/filter/ValidataCodeFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/handler/SuccessAuthenticationHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/handler/SuccessAuthenticationHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/utils/HttpHandlerUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/utils/HttpHandlerUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/utils/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/security/utils/JwtUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/utils/GeneratorMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/kj/commdityinfo/utils/GeneratorMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ex/UserMapperEx.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ex/UserMapperEx.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,10 +40,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/ValidataCodeFilter.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-25">
-              <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+            <state relative-caret-position="262">
+              <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,49 +52,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/login.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1175">
-              <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="67" column="14" lean-forward="true" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+            <state relative-caret-position="300">
+              <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/bean/User.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/ZhenziSmsUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="350">
+              <caret line="37" column="32" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,10 +73,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://E:/Maven/workspace/com/zhenzikj/zhenzisms/2.0.2/zhenzisms-2.0.2-sources.jar!/com/zhenzi/sms/ZhenziSmsClient.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/MyUserDetailsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1925">
-              <caret line="92" column="31" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
+            <state relative-caret-position="251">
+              <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -202,8 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/exception/UserException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/service/impl/CommentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/CommentMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/ItemMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/UserController.java" />
@@ -244,14 +171,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/HttpHandlerUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/JwtAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/bean/SmsAuthenticationToken.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/provider/SmsAuthenticationProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/JwtUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/SmsAuthenticationFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/filter/ValidataCodeFilter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/ZhenziSmsUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/ex/UserMapperEx.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java" />
       </list>
     </option>
@@ -269,7 +198,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="440" />
     <option name="width" value="1315" />
     <option name="height" value="1050" />
@@ -343,7 +272,31 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="kj" type="462c0819:PsiDirectoryNode" />
               <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
-              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commdityinfo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="kj" type="462c0819:PsiDirectoryNode" />
+              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commdityinfo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="kj" type="462c0819:PsiDirectoryNode" />
+              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
+              <item name="security" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="commdityinfo" type="b2602c69:ProjectViewProjectNode" />
@@ -358,7 +311,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commdityinfo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="ex" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -517,7 +479,7 @@
       <workItem from="1591863216397" duration="12222000" />
       <workItem from="1591882791413" duration="7521000" />
       <workItem from="1591923572578" duration="268000" />
-      <workItem from="1591924582215" duration="2397000" />
+      <workItem from="1591924582215" duration="4031000" />
     </task>
     <task id="LOCAL-00001" summary="2020/5/5 17:29 &#10;master,最初版">
       <created>1588671038253</created>
@@ -530,7 +492,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149910000" />
+    <option name="totallyTimeSpent" value="151544000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -546,7 +508,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5311615" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14164306" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3753541" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4858357" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -555,7 +517,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.5084986" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.04249292" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.3286119" />
       <window_info anchor="bottom" id="Tail" order="14" />
@@ -678,24 +640,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../demo/src/main/java/com/alipay/demo/controller/notifyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="56" column="65" lean-forward="true" selection-start-line="56" selection-start-column="65" selection-end-line="56" selection-end-column="65" />
-          <folding>
-            <element signature="e#852#867#0" expanded="true" />
-            <element signature="e#1144#1159#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/DemoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/AlipayConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -940,24 +884,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Maven/workspace/org/springframework/security/spring-security-core/5.2.2.RELEASE/spring-security-core-5.2.2.RELEASE-sources.jar!/org/springframework/security/core/userdetails/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="107" column="11" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/MyUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="66" column="8" lean-forward="true" selection-start-line="66" selection-start-column="8" selection-end-line="68" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -1014,16 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Maven/workspace/com/zhenzikj/zhenzisms/2.0.2/zhenzisms-2.0.2.jar!/com/zhenzi/sms/ZhenziSmsClient.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -1065,16 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1084,8 +994,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/bean/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="250">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ex/UserMapperEx.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="38" column="39" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/MyUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="37" column="32" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

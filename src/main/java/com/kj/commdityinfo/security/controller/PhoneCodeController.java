@@ -33,8 +33,8 @@ public class PhoneCodeController {
         String code = createCode();
         JedisUtils.setex(num, EXPIRETIME, code);
         //发送验证码
-        String s = ZhenziSmsUtils.sendSMS(num, code);
-        System.out.println(s);
+//        String s = ZhenziSmsUtils.sendSMS(num, code);
+//        System.out.println(s);
         return MessageUtil.success("成功发送验证码，请耐心等待");
     }
 

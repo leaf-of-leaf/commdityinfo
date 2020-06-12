@@ -31,4 +31,6 @@ public interface UserMapper {
     Integer isExistsByUserId(Integer userId);
 
     User findUserAndRoleByUserName(String name);
+
+    User findUserAndRoleByMobile(String mobile);
 }

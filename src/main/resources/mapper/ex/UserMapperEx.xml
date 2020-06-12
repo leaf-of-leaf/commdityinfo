@@ -35,4 +35,11 @@
         inner join role r
         on u.name = #{name} and u.role_id = r.role_id
     </select>
+
+    <select id="findUserAndRoleByMobile" parameterType="String" resultMap="findUserAndRoleResultMap">
+        select u.user_id uid,u.name uname,u.password,r.role_id rid,r.name rname
+        from user u
+        inner join role r
+        on u.mobile = #{mobile} and u.role_id = r.role_id
+    </select>
 </mapper>
