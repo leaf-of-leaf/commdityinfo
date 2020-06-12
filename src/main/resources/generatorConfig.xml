@@ -52,44 +52,44 @@
     <javaClientGenerator type="XMLMAPPER" targetPackage="com.kj.commdityinfo.mapper"  targetProject="./src/main/java">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
-
-	<!-- 映射配置 -->
       <table tableName="nav_item" domainObjectName="NavItem">
-        <oneToMany mappingTable="cate_item" column="nav_id" joinColumn="nav_id" />
+          <oneToMany mappingTable="cate_item" column="nav_id" joinColumn="nav_id" />
       </table>
 
       <table tableName="cate_item" domainObjectName="CateItem">
-          <oneToOne mappingTable="nav_item" column="nav_id" joinColumn="nav_id" />
+          <!--          <oneToOne mappingTable="nav_item" column="nav_id" joinColumn="nav_id" />-->
       </table>
 
-<!--      <table tableName="comment" domainObjectName="Comment">-->
-<!--          <oneToOne mappingTable="item" column="item_id" joinColumn="item_id" />-->
-<!--          <oneToOne mappingTable="user" column="user_id" joinColumn="user_id" />-->
-<!--      </table>-->
+      <!--      <table tableName="comment" domainObjectName="Comment">-->
+      <!--          <oneToOne mappingTable="item" column="item_id" joinColumn="item_id" />-->
+      <!--          <oneToOne mappingTable="user" column="user_id" joinColumn="user_id" />-->
+      <!--      </table>-->
 
-<!--	<table tableName="item" domainObjectName="Item">-->
-<!--        <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>-->
-<!--        <oneToOne mappingTable="cate_item" column="cate_id" joinColumn="cate_id" />-->
-<!--    </table>-->
-	<table tableName="user" domainObjectName="User">
-        <oneToOne mappingTable="role" column="role_id" joinColumn="role_id" />
-    </table>
-	<table tableName="role" domainObjectName="Role"></table>
+      <!--	<table tableName="item" domainObjectName="Item">-->
+      <!--        <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>-->
+      <!--        <oneToOne mappingTable="cate_item" column="cate_id" joinColumn="cate_id" />-->
+      <!--    </table>-->
+      <table tableName="user" domainObjectName="User">
+          <oneToOne mappingTable="role" column="role_id" joinColumn="role_id" />
+      </table>
+      <table tableName="role" domainObjectName="Role"></table>
 
 
-    <table tableName="item" domainObjectName="Item">
-        <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
-        <oneToOne mappingTable="cate_item" column="cate_id" joinColumn="cate_id" />
-    </table>
+      <table tableName="item" domainObjectName="Item">
+          <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+          <oneToOne mappingTable="cate_item" column="cate_id" joinColumn="cate_id" />
+      </table>
 
-    <table tableName="order_item" domainObjectName="orderItem">
-      <oneToOne mappingTable="item" column="item_id" joinColumn="item_id" />
-    </table>
+      <table tableName="order_item" domainObjectName="OrderItem">
+          <oneToOne mappingTable="item" column="item_id" joinColumn="item_id" />
+      </table>
 
-    <table tableName="user_order" domainObjectName="userOrder">
-      <columnOverride column="order_description" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
-      <oneToOne mappingTable="user" column="user_id" joinColumn="user_id" />
-    </table>
+      <table tableName="user_order" domainObjectName="UserOrder">
+          <columnOverride column="order_description" javaType="java.lang.String" jdbcType="VARCHAR"></columnOverride>
+          <oneToOne mappingTable="user" column="user_id" joinColumn="user_id" />
+      </table>
+	<!-- 映射配置 -->
+
 
   </context>
 </generatorConfiguration>

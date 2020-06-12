@@ -5,7 +5,6 @@
     <id column="cate_id" jdbcType="INTEGER" property="cateId" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="nav_id" jdbcType="INTEGER" property="navId" />
-    <association column="nav_id" property="navItem" select="getNavItem" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -179,7 +178,4 @@
       nav_id = #{navId,jdbcType=INTEGER}
     where cate_id = #{cateId,jdbcType=INTEGER}
   </update>
-  <select id="getNavItem" resultMap="com.kj.commdityinfo.mapper.NavItemMapper.BaseResultMap">
-    select nav_id,title from nav_item where nav_id=#{navId}
-  </select>
 </mapper>

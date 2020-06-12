@@ -18,8 +18,13 @@ import java.util.List;
 @Service
 public class ItemServiceImpl implements ItemService {
 
-    @Autowired
+    @Autowired(required = false)
     private ItemMapper itemMapper;
+
+    @Override
+    public List<Item> findAllItem() throws Exception {
+        return itemMapper.selectByExample(new ItemExample());
+    }
 
     @Override
     public List<Item> findItemsByCateId(Integer cateId) throws Exception {
@@ -57,4 +62,5 @@ public class ItemServiceImpl implements ItemService {
     public void deleteItemByItemId(Integer itemId) {
         itemMapper.deleteByPrimaryKey(itemId);
     }
+
 }

@@ -12,7 +12,6 @@ import java.util.List;
 public interface NavItemService {
     /**
      * 查询所有的一级栏目
-     * 其中会包含二级栏目
      * @return
      */
     List<NavItem> findAllNavItem();

@@ -11,6 +11,15 @@ import java.util.List;
  */
 public interface ItemService {
 
+
+    /**
+     * 查询所有商品
+     * @return
+     * @throws Exception
+     */
+    List<Item> findAllItem() throws Exception;
+
+
     /**
      * 通过分类id查询Item
      * @param cateId

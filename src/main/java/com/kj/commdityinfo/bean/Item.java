@@ -14,7 +14,7 @@ public class Item implements Serializable {
 
     private String content;
 
-    private Integer start;
+    private Integer star;
 
     private Integer personNum;
 
@@ -72,12 +72,12 @@ public class Item implements Serializable {
         this.content = content == null ? null : content.trim();
     }
 
-    public Integer getStart() {
-        return start;
+    public Integer getStar() {
+        return star;
     }
 
-    public void setStart(Integer start) {
-        this.start = start;
+    public void setStar(Integer star) {
+        this.star = star;
     }
 
     public Integer getPersonNum() {
@@ -147,7 +147,7 @@ public class Item implements Serializable {
         sb.append(", location=").append(location);
         sb.append(", saleTime=").append(saleTime);
         sb.append(", content=").append(content);
-        sb.append(", start=").append(start);
+        sb.append(", star=").append(star);
         sb.append(", personNum=").append(personNum);
         sb.append(", price=").append(price);
         sb.append(", priceLink=").append(priceLink);

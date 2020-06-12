@@ -9,8 +9,6 @@ public class CateItem implements Serializable {
 
     private Integer navId;
 
-    private NavItem navItem;
-
     private static final long serialVersionUID = 1L;
 
     public Integer getCateId() {
@@ -37,14 +35,6 @@ public class CateItem implements Serializable {
         this.navId = navId;
     }
 
-    public NavItem getNavItem() {
-        return navItem;
-    }
-
-    public void setNavItem(NavItem navItem) {
-        this.navItem=navItem;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -54,7 +44,6 @@ public class CateItem implements Serializable {
         sb.append(", cateId=").append(cateId);
         sb.append(", title=").append(title);
         sb.append(", navId=").append(navId);
-        sb.append(", navItem=").append(navItem);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

@@ -2,6 +2,7 @@ package com.kj.commdityinfo.security.config;
 
 import com.kj.commdityinfo.mapper.UserMapper;
 import com.kj.commdityinfo.security.bean.MyUser;
+import com.kj.commdityinfo.security.exception.ValidateCodeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
@@ -29,6 +30,10 @@ public class SmsUserDetailsService implements UserDetailsService {
         //此处进行查询数据库操作，例如手机号有没有注册，但便于测试，便直接返回User了
 
         com.kj.commdityinfo.bean.User userAndRoleByMobile = userMapper.findUserAndRoleByMobile(mobile);
+
+        if(userAndRoleByMobile == null){
+            throw new ValidateCodeException("验证失败,该手机还未注册");
+        }
 
         MyUser user = new MyUser();
         user.setUserName(userAndRoleByMobile.getName());

@@ -7,7 +7,7 @@
     <result column="location" jdbcType="VARCHAR" property="location" />
     <result column="sale_time" jdbcType="DATE" property="saleTime" />
     <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="start" jdbcType="INTEGER" property="start" />
+    <result column="star" jdbcType="INTEGER" property="star" />
     <result column="person_num" jdbcType="INTEGER" property="personNum" />
     <result column="price" jdbcType="DOUBLE" property="price" />
     <result column="price_link" jdbcType="VARCHAR" property="priceLink" />
@@ -75,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    item_id, name, location, sale_time, content, start, person_num, price, price_link, 
+    item_id, name, location, sale_time, content, star, person_num, price, price_link, 
     isexists, img, cate_id
   </sql>
   <select id="selectByExample" parameterType="com.kj.commdityinfo.bean.ItemExample" resultMap="BaseResultMap">
@@ -110,12 +110,12 @@
   </delete>
   <insert id="insert" parameterType="com.kj.commdityinfo.bean.Item">
     insert into item (item_id, name, location, 
-      sale_time, content, start, 
+      sale_time, content, star, 
       person_num, price, price_link, 
       isexists, img, cate_id
       )
     values (#{itemId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
-      #{saleTime,jdbcType=DATE}, #{content,jdbcType=VARCHAR}, #{start,jdbcType=INTEGER}, 
+      #{saleTime,jdbcType=DATE}, #{content,jdbcType=VARCHAR}, #{star,jdbcType=INTEGER}, 
       #{personNum,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{priceLink,jdbcType=VARCHAR}, 
       #{isexists,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, #{cateId,jdbcType=INTEGER}
       )
@@ -138,8 +138,8 @@
       <if test="content != null">
         content,
       </if>
-      <if test="start != null">
-        start,
+      <if test="star != null">
+        star,
       </if>
       <if test="personNum != null">
         person_num,
@@ -176,8 +176,8 @@
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
       </if>
-      <if test="start != null">
-        #{start,jdbcType=INTEGER},
+      <if test="star != null">
+        #{star,jdbcType=INTEGER},
       </if>
       <if test="personNum != null">
         #{personNum,jdbcType=INTEGER},
@@ -223,8 +223,8 @@
       <if test="record.content != null">
         content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.start != null">
-        start = #{record.start,jdbcType=INTEGER},
+      <if test="record.star != null">
+        star = #{record.star,jdbcType=INTEGER},
       </if>
       <if test="record.personNum != null">
         person_num = #{record.personNum,jdbcType=INTEGER},
@@ -256,7 +256,7 @@
       location = #{record.location,jdbcType=VARCHAR},
       sale_time = #{record.saleTime,jdbcType=DATE},
       content = #{record.content,jdbcType=VARCHAR},
-      start = #{record.start,jdbcType=INTEGER},
+      star = #{record.star,jdbcType=INTEGER},
       person_num = #{record.personNum,jdbcType=INTEGER},
       price = #{record.price,jdbcType=DOUBLE},
       price_link = #{record.priceLink,jdbcType=VARCHAR},
@@ -282,8 +282,8 @@
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="start != null">
-        start = #{start,jdbcType=INTEGER},
+      <if test="star != null">
+        star = #{star,jdbcType=INTEGER},
       </if>
       <if test="personNum != null">
         person_num = #{personNum,jdbcType=INTEGER},
@@ -312,7 +312,7 @@
       location = #{location,jdbcType=VARCHAR},
       sale_time = #{saleTime,jdbcType=DATE},
       content = #{content,jdbcType=VARCHAR},
-      start = #{start,jdbcType=INTEGER},
+      star = #{star,jdbcType=INTEGER},
       person_num = #{personNum,jdbcType=INTEGER},
       price = #{price,jdbcType=DOUBLE},
       price_link = #{priceLink,jdbcType=VARCHAR},

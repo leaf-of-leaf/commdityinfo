@@ -39,7 +39,6 @@ public class PhoneCodeController {
     }
 
     public String createCode(){
-
         StringBuffer stringBuffer = new StringBuffer();
         Random random = new Random();
         for(int i = 0; i <= 5; i++){
