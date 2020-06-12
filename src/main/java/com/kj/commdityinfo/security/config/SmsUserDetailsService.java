@@ -22,8 +22,7 @@ public class SmsUserDetailsService implements UserDetailsService {
     @Autowired(required = false)
     private UserMapper userMapper;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public UserDetails loadUserByUsername(String mobile) throws UsernameNotFoundException {

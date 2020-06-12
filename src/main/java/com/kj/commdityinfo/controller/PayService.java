@@ -53,7 +53,7 @@ public class PayService {
         //订单名称，必填
         String subject = new String("商品".getBytes("ISO-8859-1"),"UTF-8");
         //商品描述，可空
-        String body = new String("商品描述".getBytes("ISO-8859-1"),"UTF-8");
+        String body = new String("商品描述asdsadasdasdasdasd".getBytes("ISO-8859-1"),"UTF-8");
 
         request.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","
                 + "\"total_amount\":\""+ total_amount +"\","

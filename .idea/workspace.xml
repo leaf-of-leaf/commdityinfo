@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea5dc53c-8bf7-49c1-a0ba-b81162ea884d" name="Default Changelist" comment="2020/5/5 17:29 &#10;master,最初版">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/PayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/PayService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ex/UserMapperEx.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ex/UserMapperEx.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/GeneratorMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/GeneratorMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,8 +42,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            <state relative-caret-position="323">
+              <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/GeneratorMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <folding>
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#695#696#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="86" column="12" lean-forward="true" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/RoleMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-111">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/PayService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="53" column="22" lean-forward="true" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,17 +106,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+            <state relative-caret-position="275">
+              <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="37" column="32" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+            <state relative-caret-position="245">
+              <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/MyUserDetailsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
+            <state relative-caret-position="1076">
               <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
             </state>
           </provider>
@@ -120,6 +172,7 @@
       <find>JwtAuthenticationFilter</find>
       <find>RequestMatcher</find>
       <find>mitigateAgainstTimingAttack</find>
+      <find>context</find>
     </findStrings>
     <replaceStrings>
       <replace>pointCutMethod</replace>
@@ -131,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/CommentMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/ItemMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
@@ -157,11 +209,9 @@
         <option value="$PROJECT_DIR$/../shop/src/main/java/com/duobaoli/shop/service/impl/UserServiceimpl.java" />
         <option value="$PROJECT_DIR$/../shop/src/main/java/com/duobaoli/shop/controller/UserController.java" />
         <option value="$PROJECT_DIR$/../shop/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/GeneratorMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/aop/LogMonitor.java" />
         <option value="$PROJECT_DIR$/../demo/src/main/java/com/alipay/demo/controller/notifyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/AlipayConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/PayService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/ValidataController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -179,9 +229,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/utils/ZhenziSmsUtils.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/ex/UserMapperEx.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/PayService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/GeneratorMain.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
       </list>
     </option>
   </component>
@@ -272,30 +325,6 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="kj" type="462c0819:PsiDirectoryNode" />
               <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="commdityinfo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="kj" type="462c0819:PsiDirectoryNode" />
-              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="commdityinfo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="kj" type="462c0819:PsiDirectoryNode" />
-              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -303,14 +332,10 @@
               <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="commdityinfo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="kj" type="462c0819:PsiDirectoryNode" />
               <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -318,9 +343,18 @@
               <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="kj" type="462c0819:PsiDirectoryNode" />
+              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="commdityinfo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="commdityinfo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-              <item name="ex" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -375,7 +409,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CommdityinfoApplication">
+  <component name="RunManager" selected="Application.GeneratorMain">
     <configuration name="GeneratorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.kj.commdityinfo.utils.GeneratorMain" />
       <module name="commdityinfo" />
@@ -479,7 +513,7 @@
       <workItem from="1591863216397" duration="12222000" />
       <workItem from="1591882791413" duration="7521000" />
       <workItem from="1591923572578" duration="268000" />
-      <workItem from="1591924582215" duration="4031000" />
+      <workItem from="1591924582215" duration="6483000" />
     </task>
     <task id="LOCAL-00001" summary="2020/5/5 17:29 &#10;master,最初版">
       <created>1588671038253</created>
@@ -492,7 +526,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151544000" />
+    <option name="totallyTimeSpent" value="153996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -508,7 +542,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5311615" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3753541" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.07507082" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4858357" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -517,7 +551,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.04249292" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.41359773" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.3286119" />
       <window_info anchor="bottom" id="Tail" order="14" />
@@ -640,30 +674,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/AlipayConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="141" column="35" selection-start-line="141" selection-start-column="35" selection-end-line="141" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Maven/workspace/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10-sources.jar!/org/apache/commons/lang3/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="3547" column="26" selection-start-line="3547" selection-start-column="26" selection-end-line="3547" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Maven/workspace/org/springframework/security/spring-security-web/5.2.2.RELEASE/spring-security-web-5.2.2.RELEASE-sources.jar!/org/springframework/security/web/authentication/AuthenticationFailureHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -707,16 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/PayService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -985,13 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="67" column="14" lean-forward="true" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/bean/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1006,44 +999,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="33" column="4" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+        <state relative-caret-position="245">
+          <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/MyUserDetailsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="1076">
           <caret line="59" column="41" lean-forward="true" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/controller/PayService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="53" column="22" lean-forward="true" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/RoleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/utils/GeneratorMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/ItemMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/config/SmsUserDetailsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+        <state relative-caret-position="323">
+          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kj/commdityinfo/security/controller/PhoneCodeController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="37" column="32" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="328">
+          <caret line="86" column="12" lean-forward="true" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
         </state>
       </provider>
     </entry>

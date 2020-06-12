@@ -59,7 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         smsAuthenticationProvider.setUserDetailsService(smsUserDetailsService);
         auth.authenticationProvider(smsAuthenticationProvider);
         auth.userDetailsService(myUserDetailsService);
-
     }
 
     @Override
