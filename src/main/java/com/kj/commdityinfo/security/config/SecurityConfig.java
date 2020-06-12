@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kj.commdityinfo.security.bean.FilterPath;
 import com.kj.commdityinfo.security.filter.JwtAuthenticationFilter;
 import com.kj.commdityinfo.security.filter.JwtAuthorityFilter;
+import com.kj.commdityinfo.security.filter.SmsAuthenticationFilter;
 import com.kj.commdityinfo.security.filter.ValidataCodeFilter;
+import com.kj.commdityinfo.security.provider.SmsAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -50,7 +52,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //需要添加添加配置，不然authenticationManager()返回为null
         //同时可以配置provder和UserDeatisService
-//        auth.authenticationProvider(daoAuthenticationProvider()).userDetailsService(new MyUserDetailsService());
+        SmsAuthenticationProvider smsAuthenticationProvider = new SmsAuthenticationProvider();
+        smsAuthenticationProvider.setUserDetailsService(new SmsUserDetailsService());
+        auth.authenticationProvider(smsAuthenticationProvider);
         auth.userDetailsService(myUserDetailsService);
 
     }
@@ -76,8 +80,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .addFilterBefore(validataCodeFilter, UsernamePasswordAuthenticationFilter.class)
+                //token的授权
                 .addFilter(new JwtAuthorityFilter(authenticationManager()))
+                //用户名密码登录
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+                //手机验证码登录
+                .addFilterBefore(new SmsAuthenticationFilter(authenticationManager()), JwtAuthenticationFilter.class)
                 //禁用session
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -122,10 +130,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/smscode",
                 "/signout/success",
                 "/code/img",
+                "/code/sms",
                 //swagger中的路径
                 "/swagger*//**",
                 "/v2/api-docs",
-                "/webjars*//**"
+                "/webjars*//**",
+                "/phonepay"
         });
     }
 

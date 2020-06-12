@@ -30,7 +30,7 @@ public class ValidataController {
 
     @GetMapping("/code/img")
     public void createImageCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+//        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
 
         ImageCode imageCode = createImageCode();
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");

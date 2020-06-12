@@ -24,6 +24,7 @@ public class JwtUtils {
      * 有效时间
      */
     public static final long EXPIRITION = 1000 * 60 * 60 * 24;
+//    public static final long EXPIRITION = 1000 * 60;
 
     /**
      * 可用时间
@@ -31,7 +32,7 @@ public class JwtUtils {
      */
     public static final long ENABLETIME = 1000 * 60;
 
-    public static final String APPSECRET_KEY = "congge_secret";
+    public static final String APPSECRET_KEY = "kuangjie";
 
     private static final String ROLE_CLAIMS = "rol";
 

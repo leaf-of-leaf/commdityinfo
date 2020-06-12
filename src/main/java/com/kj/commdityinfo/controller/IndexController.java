@@ -1,4 +1,4 @@
-package com.kj.commdityinfo.security.controller;
+package com.kj.commdityinfo.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

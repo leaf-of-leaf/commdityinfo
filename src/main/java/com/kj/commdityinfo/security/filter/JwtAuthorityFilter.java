@@ -50,10 +50,12 @@ public class JwtAuthorityFilter extends BasicAuthenticationFilter {
 
         String authorization = request.getHeader(JwtUtils.TOKEN_HEADER);
 
+        //当
         if(StringUtils.isEmpty(authorization)){
             chain.doFilter(request,response);
             return;
         }
+
 
         if(!authorization.startsWith(JwtUtils.TOKEN_PREFIX)){
             onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("客户端传来的令牌出现错误"));
@@ -73,26 +75,35 @@ public class JwtAuthorityFilter extends BasicAuthenticationFilter {
             chain.doFilter(request,response);
             return;
         }
-
-        if(StringUtils.isEmpty(username)){
-            onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("username为空"));
+        //令牌无效
+        catch (Exception e){
+            System.out.println("令牌无效");
             chain.doFilter(request,response);
             return;
         }
 
-        String realToken = (String) JedisUtils.get(username);
+//        if(StringUtils.isEmpty(username)){
+//            onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("username为空"));
+//            chain.doFilter(request,response);
+//            return;
+//        }
 
-        if(StringUtils.isEmpty(realToken) || !realToken.equals(token)) {
-            onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("token不正确"));
-            chain.doFilter(request,response);
-            return;
-        }
+        //从传来的token中解析出来的用户名去获取redis中token
+        //String realToken = (String) JedisUtils.get(username);
 
-        //已过可用期，但处于可刷新期
+
+//        if(StringUtils.isEmpty(realToken) || !realToken.equals(token)) {
+//            onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("token不正确"));
+//            chain.doFilter(request,response);
+//            return;
+//        }
+
+        //已过可用期，但处于可刷新期,即处于可用期与有效期之间
         if(JwtUtils.isRefreshToken(token)){
             System.out.println("token进行刷新");
-            String refreshToken = JwtUtils.createToken(username, JwtUtils.getUserRole(realToken));
-            JedisUtils.set(username,refreshToken);
+            //创造新的token
+            String refreshToken = JwtUtils.createToken(username, JwtUtils.getUserRole(token));
+//            JedisUtils.set(username,refreshToken);
             response.setHeader(JwtUtils.TOKEN_HEADER,JwtUtils.TOKEN_PREFIX + refreshToken);
             Authentication authentication = HttpHandlerUtils.getAuthentication(username, refreshToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -100,8 +111,9 @@ public class JwtAuthorityFilter extends BasicAuthenticationFilter {
             return;
         }
 
+        //token可用时，授权
         if(SecurityContextHolder.getContext().getAuthentication() == null){
-            Authentication authentication = HttpHandlerUtils.getAuthentication(username, realToken);
+            Authentication authentication = HttpHandlerUtils.getAuthentication(username, token);
             SecurityContextHolder.getContext().setAuthentication(authentication);
             onSuccessfulAuthentication(request,response,authentication);
         }

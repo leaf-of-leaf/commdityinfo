@@ -30,6 +30,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         setAuthenticationFailureHandler(new FailureAuthenticationHandler());
     }
 
+    public JwtAuthenticationFilter(){}
+
 
 
     @Override

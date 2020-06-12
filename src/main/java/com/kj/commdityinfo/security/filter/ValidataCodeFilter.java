@@ -4,9 +4,10 @@ import com.kj.commdityinfo.security.exception.ValidateCodeException;
 import com.kj.commdityinfo.security.utils.HttpHandlerUtils;
 import com.kj.commdityinfo.security.utils.JedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -19,15 +20,13 @@ import java.io.IOException;
  * @author kj
  * @Date 2020/4/23 19:37
  * @Version 1.0
- * 验证码校验过滤器
+ * 图形验证码校验过滤器
  */
 @Component
 public class ValidataCodeFilter extends OncePerRequestFilter {
 
     @Autowired
     private AuthenticationFailureHandler authenticationFailureHandler;
-
-//    private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -36,6 +35,9 @@ public class ValidataCodeFilter extends OncePerRequestFilter {
 
 
         String loginUrl = "/login";
+
+        String loginPhoneUrl = "/login/mobile";
+
         String loginMethod = "POST";
 
         String requestURI = request.getRequestURI();
@@ -50,22 +52,61 @@ public class ValidataCodeFilter extends OncePerRequestFilter {
                 return;
             }
         }
+
+        if (loginPhoneUrl.equals(requestURI)
+                && loginMethod.equals(method)) {
+            try {
+                checkPhoneCode(request);
+            } catch (ValidateCodeException e) {
+                authenticationFailureHandler.onAuthenticationFailure(request, response, e);
+                return;
+            }
+        }
         filterChain.doFilter(request, response);
     }
 
     private void ValidataCode(HttpServletRequest request) throws ValidateCodeException {
+
+        //用户发送来的图形验证码
         String codeInRequest = request.getParameter("ImageCode");
+        //产生的uuid用来辨识不同用户之间的图形验证码
         String uuid = HttpHandlerUtils.getCookeiValue(request,"uuid");
+        //redis中存放的正确的图形验证码
         String codeInRedis = (String) JedisUtils.get(uuid);
+
+        //此时只有图形验证码存在
         if (StringUtils.isEmpty(codeInRequest)) {
-            throw new ValidateCodeException("验证码不能为空！");
+            throw new ValidateCodeException("图形验证码不能为空！");
         }
         if (codeInRedis == null) {
-            throw new ValidateCodeException("验证码已过期");
+            throw new ValidateCodeException("图形验证码已过期");
         }
         if (!codeInRedis.equals(codeInRequest)) {
-            throw new ValidateCodeException("验证码不正确！");
+            throw new ValidateCodeException("图形验证码不正确！");
         }
         //验证码正确但登录密码错误时，验证码要刷新才行
+    }
+
+    private void checkPhoneCode(HttpServletRequest request) throws ValidateCodeException {
+
+        //手机号码
+        String num = request.getParameter("phone");
+        //用户发送来的手机验证码
+        String phoneCode = request.getParameter("phoneCode");
+
+
+        //手机号码存在
+        if(!StringUtils.isBlank(num)){
+            //redis中存放的正确的手机验证码
+            String phoneCodeInRedis = (String) JedisUtils.get(num);
+            if(phoneCodeInRedis == null){
+                throw new ValidateCodeException("手机验证码已过期！");
+            }
+            if(phoneCodeInRedis.equals(phoneCode)){
+                return;
+            }else {
+                throw new ValidateCodeException("手机验证码错误！");
+            }
+        }
     }
 }

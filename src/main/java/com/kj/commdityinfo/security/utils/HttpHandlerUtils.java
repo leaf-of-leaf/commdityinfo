@@ -83,4 +83,21 @@ public class HttpHandlerUtils {
                 AuthorityUtils.commaSeparatedStringToAuthorityList(JwtUtils.getUserRole(realToken)));
         return new JwtAuthenticationToken(userDetails, userDetails.getAuthorities());
     }
+
+    /**
+     * 手机号与正确的验证码进行授权
+     * @param num
+     * @param password
+     * @return
+     */
+    public static Authentication getPhoneAuthentication(String num, String password){
+        User userDetails = new User(num,
+                password,
+                true,
+                true,
+                true,
+                true,
+                AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+        return new JwtAuthenticationToken(userDetails, userDetails.getAuthorities());
+    }
 }

@@ -43,8 +43,8 @@ public class LogMonitor {
         Object[] args = pjp.getArgs();
         //设置token
         String authorization = request.getHeader(JwtUtils.TOKEN_HEADER);
-        String token = authorization.replaceAll(JwtUtils.TOKEN_PREFIX, "");
-        log.setToken(token);
+//        String token = authorization.replaceAll(JwtUtils.TOKEN_PREFIX, "");
+//        log.setToken(token);
         try{
                 //前置
             Long startTime = System.currentTimeMillis();
