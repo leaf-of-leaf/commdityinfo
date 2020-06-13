@@ -10,7 +10,6 @@ public class UserOrder implements Serializable {
     public static final Integer PAYING = 1;
     public static final Integer SUCCESS = 2;
 
-
     private Integer orderId;
 
     @NotNull

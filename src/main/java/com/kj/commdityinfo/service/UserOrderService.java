@@ -45,8 +45,9 @@ public interface UserOrderService {
     void deleteUserOrderByOrderNum(String orderNum);
 
     /**
-     * 插入订单
+     * 插入
      * @param userOrder
+     * @throws Exception
      */
     void insertUserOrder(UserOrder userOrder) throws Exception;
 

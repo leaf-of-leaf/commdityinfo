@@ -17,7 +17,7 @@ public class AlipayConfig {
     public static String charset = "utf-8";
     public static String publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAguyf+dK2GfgH+MCBzVQjTgXMWCKPkP4X6Knlgb1lPqrAasDIlAKmnjP6ji21ehgbdEJL3WAGYGrPOic6A+6pKFTpFg8xaI4EP85i+oLDR2tT5hajWP1k+QN6ehvNluJXnR9dV7bGXzAaJgdUHSl2Iv2973jcR4tsN1YiJWiaOiO2VcodEtefwlJQGPqtnLDcZzv628zAr1IbD8rBu5eYula/kmWAGQd6iv1sN1kChDEH7Nmulrt2fs+6kHJrtBgWS5d/cWg+YBBph4C7nR6/Ras36JINKBD6gzY+2MEgM86L+0Vs0Ta8TIKMw1NR78VBjDOv0MXMWUHWIVKyuAeZQQIDAQAB";
     public static String signType = "RSA2";
-//    public static String return_url = "http://134.175.100.63:8585/zhikongziping/children.html";
+    //public static String return_url = "http://134.175.100.63:8585/zhikongziping/children.html";
     /**
      * 买家付款成功后,如果接口中指定有return_url，买家付完款后会跳到return_url所在的页面，这个页面可以展示给客户看，且该页面只有当付款成功时才会跳转
      */

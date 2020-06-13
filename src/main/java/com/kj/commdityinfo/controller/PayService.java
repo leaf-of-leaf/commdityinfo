@@ -62,13 +62,19 @@ public class PayService {
         request.setNotifyUrl(AlipayConfig.notify_url);
 
         //商户订单号，商户网站订单系统中唯一订单号，必填
-        String out_trade_no = new String(userOrderByOrderNum.getOrderName().getBytes("UTF-8"),"UTF-8");
+        String out_trade_no = new String(orderNum.getBytes("UTF-8"),"UTF-8");
         //付款金额，必填
         String total_amount = new String(userOrderByOrderNum.getPaidAccount().toString().getBytes("UTF-8"),"UTF-8");
-        //订单名称，必填
+        //订单名称，必填(不可重复)
         String subject = new String(userOrderByOrderNum.getOrderName().getBytes("UTF-8"),"UTF-8");
+//        String subject = userOrderByOrderNum.getOrderName();
         //商品描述，可空
         String body = new String(userOrderByOrderNum.getOrderDescription().getBytes("UTF-8"),"UTF-8");
+//        String body = userOrderByOrderNum.getOrderDescription();
+        System.out.println("out_trade_no:" + out_trade_no);
+        System.out.println(total_amount);
+        System.out.println(subject);
+        System.out.println(body);
 
         request.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","
                 + "\"total_amount\":\""+ total_amount +"\","

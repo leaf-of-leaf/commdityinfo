@@ -99,6 +99,10 @@ public class UserOrderServiceImpl implements UserOrderService {
         if(userOrder == null){
             throw new SystemException("参数有误");
         }
+        if(StringUtils.isBlank(userOrder.getOrderDescription()) || StringUtils.isBlank(userOrder.getOrderName())){
+            throw new SystemException("参数有误");
+        }
+
 
         List<OrderItem> orderItemByUserId = orderItemService.findOrderItemByUserIdAndOrderNum(userOrder.getUserId(), "");
         Double total = 0d;

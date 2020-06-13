@@ -35,7 +35,6 @@ import java.util.Arrays;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     @Autowired
     private MyUserDetailsService myUserDetailsService;
 
@@ -137,7 +136,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/swagger*//**",
                 "/v2/api-docs",
                 "/webjars*//**",
-                "/phonepay"
+                "/phonepay",
+                "/return",
+                "/notify"
         });
     }
 
