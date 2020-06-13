@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
             throw new SystemException("userId不正确");
         }
         if(userId == null){
+            user.setRoleId(5);
             userMapper.insertSelective(user);
         }
         if(userMapper.isExistsByUserId(userId) != null) {

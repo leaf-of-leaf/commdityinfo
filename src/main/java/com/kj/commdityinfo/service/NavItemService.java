@@ -16,4 +16,18 @@ public interface NavItemService {
      */
     List<NavItem> findAllNavItem();
 
+    /**
+     * 通过id查询一级栏目
+     * @param navItemId
+     * @return
+     */
+    NavItem findNavItemByNavItemId(Integer navItemId);
+
+    /**
+     * 通过Name查询一级栏目
+     * @param navItemName
+     * @return
+     */
+    NavItem findNavItemByNavItemName(String navItemName);
+
 }

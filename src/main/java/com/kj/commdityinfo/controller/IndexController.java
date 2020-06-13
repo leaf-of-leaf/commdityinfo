@@ -1,5 +1,6 @@
 package com.kj.commdityinfo.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import java.io.PrintWriter;
  * @Version 1.0
  * 测试用Controller
  */
+@Api(tags = "首页")
 @Controller
 public class IndexController {
     @GetMapping("/index")

@@ -1,5 +1,7 @@
 package com.kj.commdityinfo.bean;
 
+import com.kj.commdityinfo.annotation.IgnoreSwaggerParameter;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -21,7 +23,7 @@ public class User implements Serializable {
     private String mobile;
 
     private Integer roleId;
-
+    @IgnoreSwaggerParameter
     private Role role;
 
     private static final long serialVersionUID = 1L;

@@ -2,14 +2,13 @@ package com.kj.commdityinfo.controller;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
-import com.alipay.api.domain.AlipayTradePayModel;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
-import com.alipay.api.response.AlipayTradeWapPayResponse;
 import com.kj.commdityinfo.bean.UserOrder;
 import com.kj.commdityinfo.exception.SystemException;
 import com.kj.commdityinfo.service.UserOrderService;
 import com.kj.commdityinfo.utils.AlipayConfig;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +29,7 @@ import java.util.Map;
  * @Date 2020/6/10 16:46
  * @Version 1.0
  */
+@Api(tags = "支付管理")
 @RestController
 public class PayService {
 
@@ -88,7 +88,7 @@ public class PayService {
             e.printStackTrace();
         }
     }
-
+    @ApiOperation(value = "此接口为商户回调接口，不能直接调用")
     @PostMapping("/notify")
     public void notifyUrl(HttpServletResponse response, HttpServletRequest request) throws Exception {
         System.out.println("notify");
@@ -161,6 +161,7 @@ public class PayService {
      * @param request
      * @throws IOException
      */
+    @ApiOperation(value = "此接口为客户回调接口，不能直接调用")
     @GetMapping("/return")
     public void returnUrl(HttpServletResponse response, HttpServletRequest request) throws IOException {
         //获取支付宝GET过来反馈信息

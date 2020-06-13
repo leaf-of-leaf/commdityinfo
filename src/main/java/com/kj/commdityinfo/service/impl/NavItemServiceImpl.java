@@ -25,4 +25,16 @@ public class NavItemServiceImpl implements NavItemService {
         NavItemExample navItemExample = new NavItemExample();
         return navItemMapper.selectByExample(navItemExample);
     }
+
+    @Override
+    public NavItem findNavItemByNavItemId(Integer navItemId) {
+        return navItemMapper.selectByPrimaryKey(navItemId);
+    }
+
+    @Override
+    public NavItem findNavItemByNavItemName(String navItemName) {
+        NavItemExample navItemExample = new NavItemExample();
+        navItemExample.createCriteria().andTitleEqualTo(navItemName);
+        return navItemMapper.selectByExample(navItemExample).get(0);
+    }
 }

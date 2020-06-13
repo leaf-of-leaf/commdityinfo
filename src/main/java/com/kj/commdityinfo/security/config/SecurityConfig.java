@@ -62,8 +62,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
+        /**
+         * 这两个都是继承WebSecurityConfigurerAdapter后重写的方法
+         * http.permitAll不会绕开springsecurity验证，相当于是允许该路径通过
+         * web.ignoring是直接绕开spring security的所有filter，直接跳过验证
+         */
+
         //允许加载的静态资源路径
         web.ignoring().antMatchers("/js/**");
+        //allow Swagger URL to be accessed without authentication
     }
 
     @Override

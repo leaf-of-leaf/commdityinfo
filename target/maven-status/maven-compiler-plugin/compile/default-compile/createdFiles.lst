@@ -1,7 +1,5 @@
 com\kj\commdityinfo\bean\CateItemExample.class
-com\kj\commdityinfo\controller\OrderController.class
 com\kj\commdityinfo\bean\OrderItemExample$GeneratedCriteria.class
-com\kj\commdityinfo\security\config\Swagger2Config.class
 com\kj\commdityinfo\bean\UserExample.class
 com\kj\commdityinfo\service\impl\UserOrderServiceImpl.class
 com\kj\commdityinfo\mapper\NavItemMapper.class

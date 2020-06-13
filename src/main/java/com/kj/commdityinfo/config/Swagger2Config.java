@@ -1,4 +1,4 @@
-package com.kj.commdityinfo.security.config;
+package com.kj.commdityinfo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

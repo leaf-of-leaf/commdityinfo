@@ -18,7 +18,7 @@ public class CateItemServiceImpl implements CateItemService {
     private CateItemMapper cateItemMapper;
 
     @Override
-    public CateItem findCateItemTitleByCateId(Integer cateId) {
+    public CateItem findCateItemByCateId(Integer cateId) {
         return cateItemMapper.selectByPrimaryKey(cateId);
     }
 }

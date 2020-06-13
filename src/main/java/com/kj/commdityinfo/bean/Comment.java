@@ -1,5 +1,7 @@
 package com.kj.commdityinfo.bean;
 
+import com.kj.commdityinfo.annotation.IgnoreSwaggerParameter;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,8 +16,9 @@ public class Comment implements Serializable {
 
     private String content;
 
+    @IgnoreSwaggerParameter
     private Item item;
-
+    @IgnoreSwaggerParameter
     private User user;
 
     private static final long serialVersionUID = 1L;

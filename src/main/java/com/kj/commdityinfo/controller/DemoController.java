@@ -15,16 +15,17 @@ import javax.servlet.http.HttpServletRequest;
  * @Date 2020/5/6 14:47
  * @Version 1.0
  */
-@Controller
+
+//@Controller
 public class DemoController {
 
-    @Autowired
-    private DemoService demoService;
-
-    @ResponseBody
-    @GetMapping("/demo")
-    public String demo(NativeWebRequest nativeWebRequest){
-        demoService.testAop();
-        return "Hello";
-    }
+//    @Autowired
+//    private DemoService demoService;
+//
+//    @ResponseBody
+//    @GetMapping("/demo")
+//    public String demo(NativeWebRequest nativeWebRequest){
+//        demoService.testAop();
+//        return "Hello";
+//    }
 }

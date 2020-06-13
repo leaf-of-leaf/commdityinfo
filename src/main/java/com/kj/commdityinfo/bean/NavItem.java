@@ -1,5 +1,7 @@
 package com.kj.commdityinfo.bean;
 
+import com.kj.commdityinfo.annotation.IgnoreSwaggerParameter;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -7,7 +9,7 @@ public class NavItem implements Serializable {
     private Integer navId;
 
     private String title;
-
+    @IgnoreSwaggerParameter
     private List<CateItem> cateItems;
 
     private static final long serialVersionUID = 1L;

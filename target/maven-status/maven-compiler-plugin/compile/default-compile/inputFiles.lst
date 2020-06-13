@@ -6,7 +6,9 @@ E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\bean\CommentExa
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\exception\JwtAuthenticationException.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\service\OrderItemService.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\utils\SerializeUtils.java
+E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\config\CustomizeModelAttributeParameterExpander.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\mapper\UserMapper.java
+E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\config\Swagger2Config.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\mapper\NavItemMapper.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\exception\SystemException.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\mapper\ItemMapper.java
@@ -18,6 +20,7 @@ E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\contro
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\mapper\UserOrderMapper.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\filter\ValidataCodeFilter.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\CommdityinfoApplication.java
+E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\NavItemController.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\utils\ZhenziSmsUtils.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\bean\OrderItemExample.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\CateItemController.java
@@ -27,12 +30,12 @@ E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\mapper\OrderIte
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\config\MyUserDetailsService.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\PayService.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\IndexController.java
+E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\OrderItemController.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\service\impl\UserOrderServiceImpl.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\bean\Role.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\handler\MyAuthenticationAccessDeniedHandler.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\bean\SmsAuthenticationToken.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\bean\ItemExample.java
-E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\OrderController.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\utils\JwtUtils.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\service\DemoService.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\handler\FailureAuthenticationHandler.java
@@ -56,7 +59,6 @@ E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\Demo
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\UserController.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\exception\JwtParseException.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\utils\AlipayConfig.java
-E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\config\Swagger2Config.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\controller\PhoneCodeController.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\service\RoleService.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\service\impl\ItemServiceImpl.java
@@ -72,6 +74,7 @@ E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\bean\M
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\bean\FilterPath.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\filter\JwtAuthorityFilter.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\handler\SuccessAuthenticationHandler.java
+E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\annotation\IgnoreSwaggerParameter.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\controller\ItemController.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\bean\JwtAuthenticationToken.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\bean\Comment.java

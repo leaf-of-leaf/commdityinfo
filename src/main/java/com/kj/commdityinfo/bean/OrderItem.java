@@ -1,5 +1,7 @@
 package com.kj.commdityinfo.bean;
 
+import com.kj.commdityinfo.annotation.IgnoreSwaggerParameter;
+
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -18,6 +20,7 @@ public class OrderItem implements Serializable {
     @NotNull
     private Integer userId;
 
+    @IgnoreSwaggerParameter
     private Item item;
 
     private static final long serialVersionUID = 1L;

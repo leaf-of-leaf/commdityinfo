@@ -9,6 +9,11 @@ import com.kj.commdityinfo.bean.CateItem;
  */
 public interface CateItemService {
 
-    CateItem findCateItemTitleByCateId(Integer cateId);
+    /**
+     * 通过id查询二级栏目
+     * @param cateId
+     * @return
+     */
+    CateItem findCateItemByCateId(Integer cateId);
 
 }

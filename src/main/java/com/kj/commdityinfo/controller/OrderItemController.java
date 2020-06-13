@@ -4,6 +4,8 @@ import com.kj.commdityinfo.bean.OrderItem;
 import com.kj.commdityinfo.service.OrderItemService;
 import com.kj.commdityinfo.utils.Message;
 import com.kj.commdityinfo.utils.MessageUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/6/12 14:07
  * @Version 1.0
  */
+@Api(tags = "订单项管理")
 @RestController
-public class OrderController {
+public class OrderItemController {
 
     @Autowired
     private OrderItemService orderItemService;
-
+    @ApiOperation(value = "通过订单号查询该订单下的所有订单项")
     @GetMapping("/findOrderItemByOrderNum")
     public Message<Object> findOrderItemByOrderNum(String orderNum){
         try{
@@ -29,7 +32,7 @@ public class OrderController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-
+    @ApiOperation(value = "通过用户id查询该用户下的所有订单项,包括已支付的和还在购物车的")
     @GetMapping("/findOrderItemByUserId")
     public Message<Object> findOrderItemByUserId(Integer userId){
         try{
@@ -38,7 +41,7 @@ public class OrderController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-
+    @ApiOperation(value = "通过用户id查询该用户下的对应订单号的 orderNum  为“”则为在购物车中的")
     @GetMapping("/findOrderItemByItemId")
     public Message<Object> findOrderItemByItemId(Integer itemId){
         try{
@@ -47,7 +50,7 @@ public class OrderController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-
+    @ApiOperation(value = "通过订单项id删除订单项")
     @GetMapping("/deleteOrderItem")
     public Message<Object> deleteOrderItem(Integer orderItemId){
         try{
@@ -57,7 +60,7 @@ public class OrderController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-
+    @ApiOperation(value = "删除该用户下的所有订单项")
     @GetMapping("/deleteOrderItemsByUserId")
     public Message<Object> deleteOrderItemsByUserId(Integer userId){
         try{
@@ -67,7 +70,7 @@ public class OrderController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-
+    @ApiOperation(value = "删除该订单下的所有订单项")
     @GetMapping("/deleteOrderItemsByUserOrderId")
     public Message<Object> deleteOrderItemsByUserOrderId(Integer orderItemId){
         try{
@@ -77,7 +80,7 @@ public class OrderController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-
+    @ApiOperation(value = "添加订单项，即加入购物车，已包含不能重复添加的功能")
     @PostMapping("/insertOrderItem")
     public Message<Object> insertOrderItem(OrderItem orderItem){
         try{
@@ -87,5 +90,4 @@ public class OrderController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-
 }

@@ -19,7 +19,7 @@ public interface UserOrderService {
     UserOrder findUserOrderByOrderId(Integer orderId);
 
     /**
-     * 通过订单号(即也是支付宝支付时对应的订单号)
+     * 通过订单号(即也是支付宝支付时对应的订单号)查询订单
      * @param orderNum
      * @return
      */

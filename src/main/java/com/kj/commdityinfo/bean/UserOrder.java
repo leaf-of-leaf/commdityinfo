@@ -1,5 +1,7 @@
 package com.kj.commdityinfo.bean;
 
+import com.kj.commdityinfo.annotation.IgnoreSwaggerParameter;
+
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
@@ -30,6 +32,7 @@ public class UserOrder implements Serializable {
     @NotNull
     private Integer userId;
 
+    @IgnoreSwaggerParameter
     private User user;
 
     private static final long serialVersionUID = 1L;

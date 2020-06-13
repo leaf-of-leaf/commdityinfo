@@ -64,7 +64,6 @@ public class UserOrderServiceImpl implements UserOrderService {
         userOrderExample.createCriteria().andUserIdEqualTo(userId);
 
         List<UserOrder> userOrders = userOrderMapper.selectByExample(userOrderExample);
-        System.out.println(userOrders);
 
         //因为订单号为unique，因此只会有一个
         //return userOrderMapper.selectByExample(userOrderExample);
