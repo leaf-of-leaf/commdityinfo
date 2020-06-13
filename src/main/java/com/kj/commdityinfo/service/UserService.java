@@ -18,7 +18,7 @@ public interface UserService {
 
     /**
      * 通过id删除User
-     * @param id
+     * @param userId
      */
 
     void deleteUserById(Integer userId);
@@ -38,7 +38,7 @@ public interface UserService {
 
     /**
      * 通过name查询User
-     * @param userId
+     * @param name
      * @return
      */
     User findUserByName(String name) throws Exception;

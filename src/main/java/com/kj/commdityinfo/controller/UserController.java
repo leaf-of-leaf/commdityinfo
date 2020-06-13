@@ -1,6 +1,7 @@
 package com.kj.commdityinfo.controller;
 
 import com.kj.commdityinfo.bean.User;
+import com.kj.commdityinfo.security.utils.JwtUtils;
 import com.kj.commdityinfo.service.UserService;
 import com.kj.commdityinfo.utils.Message;
 import com.kj.commdityinfo.utils.MessageUtil;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -60,6 +62,17 @@ public class UserController {
     public Message<User> findUserByName(String name){
         try{
             return MessageUtil.success(userService.findUserByName(name));
+        } catch (Exception e){
+            return MessageUtil.error(400,e.getMessage());
+        }
+    }
+
+    @GetMapping("/info")
+    public Message<Object> info(HttpServletRequest request){
+        try{
+            String header = request.getHeader(JwtUtils.TOKEN_HEADER);
+            String token = header.replaceAll(JwtUtils.TOKEN_PREFIX,"");
+            return MessageUtil.success(userService.findUserByName(JwtUtils.getUsername(token)));
         } catch (Exception e){
             return MessageUtil.error(400,e.getMessage());
         }

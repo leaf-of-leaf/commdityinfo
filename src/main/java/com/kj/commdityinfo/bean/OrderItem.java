@@ -1,25 +1,34 @@
 package com.kj.commdityinfo.bean;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class OrderItem implements Serializable {
     private Integer orderItemId;
-
+    @NotNull
     private Integer itemId;
 
-    private Integer orderId;
-
+    private String orderNum;
+    @NotNull
     private Integer buyCounts;
 
     private Double price;
 
     private Double paid;
-
+    @NotNull
     private Integer userId;
 
     private Item item;
 
     private static final long serialVersionUID = 1L;
+
+    public String getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
+    }
 
     public Integer getOrderItemId() {
         return orderItemId;
@@ -35,14 +44,6 @@ public class OrderItem implements Serializable {
 
     public void setItemId(Integer itemId) {
         this.itemId = itemId;
-    }
-
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
     }
 
     public Integer getBuyCounts() {
@@ -93,7 +94,7 @@ public class OrderItem implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", orderItemId=").append(orderItemId);
         sb.append(", itemId=").append(itemId);
-        sb.append(", orderId=").append(orderId);
+        sb.append(", orderNum=").append(orderNum);
         sb.append(", buyCounts=").append(buyCounts);
         sb.append(", price=").append(price);
         sb.append(", paid=").append(paid);

@@ -50,12 +50,11 @@ public class JwtAuthorityFilter extends BasicAuthenticationFilter {
 
         String authorization = request.getHeader(JwtUtils.TOKEN_HEADER);
 
-        //当
+
         if(StringUtils.isEmpty(authorization)){
             chain.doFilter(request,response);
             return;
         }
-
 
         if(!authorization.startsWith(JwtUtils.TOKEN_PREFIX)){
             onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("客户端传来的令牌出现错误"));
@@ -82,28 +81,22 @@ public class JwtAuthorityFilter extends BasicAuthenticationFilter {
             return;
         }
 
-//        if(StringUtils.isEmpty(username)){
-//            onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("username为空"));
-//            chain.doFilter(request,response);
-//            return;
-//        }
-
         //从传来的token中解析出来的用户名去获取redis中token
-        //String realToken = (String) JedisUtils.get(username);
+        String oldToken = (String) JedisUtils.get(username);
 
-
-//        if(StringUtils.isEmpty(realToken) || !realToken.equals(token)) {
-//            onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("token不正确"));
-//            chain.doFilter(request,response);
-//            return;
-//        }
+        //用来解决token刷新以后，旧的token还能登陆的问题
+        if(StringUtils.isEmpty(oldToken) || !oldToken.equals(token)) {
+            onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("token不正确"));
+            chain.doFilter(request,response);
+            return;
+        }
 
         //已过可用期，但处于可刷新期,即处于可用期与有效期之间
         if(JwtUtils.isRefreshToken(token)){
             System.out.println("token进行刷新");
             //创造新的token
             String refreshToken = JwtUtils.createToken(username, JwtUtils.getUserRole(token));
-//            JedisUtils.set(username,refreshToken);
+            JedisUtils.setex(username, JedisUtils.TIME ,refreshToken);
             response.setHeader(JwtUtils.TOKEN_HEADER,JwtUtils.TOKEN_PREFIX + refreshToken);
             Authentication authentication = HttpHandlerUtils.getAuthentication(username, refreshToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);

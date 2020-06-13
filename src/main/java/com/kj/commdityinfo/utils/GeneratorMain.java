@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class GeneratorMain {
     public static void main(String[] args) {
-        GeneratorMain.generator();
+//        GeneratorMain.generator();
     }
 
     public static void generator(){

@@ -35,6 +35,8 @@ public class SuccessAuthenticationHandler implements AuthenticationSuccessHandle
         response.setCharacterEncoding("UTF-8");
         User user = (User) authentication.getPrincipal();
         String token = HttpHandlerUtils.parseAuthenticationToToken(user);
+        //存入redis中，用来解决token刷新以后，旧的token还能登陆的问题
+        JedisUtils.setex(user.getUsername(), JedisUtils.TIME, token);
         response.setHeader(JwtUtils.TOKEN_HEADER, JwtUtils.TOKEN_PREFIX + token);
         PrintWriter writer = response.getWriter();
         writer.write("验证成功");

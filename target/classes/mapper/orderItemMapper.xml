@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kj.commdityinfo.mapper.orderItemMapper">
-  <resultMap id="BaseResultMap" type="com.kj.commdityinfo.bean.orderItem">
+<mapper namespace="com.kj.commdityinfo.mapper.OrderItemMapper">
+  <resultMap id="BaseResultMap" type="com.kj.commdityinfo.bean.OrderItem">
     <id column="order_item_id" jdbcType="INTEGER" property="orderItemId" />
     <result column="item_id" jdbcType="INTEGER" property="itemId" />
-    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="order_num" jdbcType="VARCHAR" property="orderNum" />
     <result column="buy_counts" jdbcType="INTEGER" property="buyCounts" />
     <result column="price" jdbcType="DOUBLE" property="price" />
     <result column="paid" jdbcType="DOUBLE" property="paid" />
@@ -70,9 +70,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    order_item_id, item_id, order_id, buy_counts, price, paid, user_id
+    order_item_id, item_id, order_num, buy_counts, price, paid, user_id
   </sql>
-  <select id="selectByExample" parameterType="com.kj.commdityinfo.bean.orderItemExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.kj.commdityinfo.bean.OrderItemExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -96,21 +96,21 @@
     delete from order_item
     where order_item_id = #{orderItemId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.kj.commdityinfo.bean.orderItemExample">
+  <delete id="deleteByExample" parameterType="com.kj.commdityinfo.bean.OrderItemExample">
     delete from order_item
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.kj.commdityinfo.bean.orderItem">
-    insert into order_item (order_item_id, item_id, order_id, 
+  <insert id="insert" parameterType="com.kj.commdityinfo.bean.OrderItem">
+    insert into order_item (order_item_id, item_id, order_num, 
       buy_counts, price, paid, 
       user_id)
-    values (#{orderItemId,jdbcType=INTEGER}, #{itemId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, 
+    values (#{orderItemId,jdbcType=INTEGER}, #{itemId,jdbcType=INTEGER}, #{orderNum,jdbcType=VARCHAR}, 
       #{buyCounts,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{paid,jdbcType=DOUBLE}, 
       #{userId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.kj.commdityinfo.bean.orderItem">
+  <insert id="insertSelective" parameterType="com.kj.commdityinfo.bean.OrderItem">
     insert into order_item
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderItemId != null">
@@ -119,8 +119,8 @@
       <if test="itemId != null">
         item_id,
       </if>
-      <if test="orderId != null">
-        order_id,
+      <if test="orderNum != null">
+        order_num,
       </if>
       <if test="buyCounts != null">
         buy_counts,
@@ -142,8 +142,8 @@
       <if test="itemId != null">
         #{itemId,jdbcType=INTEGER},
       </if>
-      <if test="orderId != null">
-        #{orderId,jdbcType=INTEGER},
+      <if test="orderNum != null">
+        #{orderNum,jdbcType=VARCHAR},
       </if>
       <if test="buyCounts != null">
         #{buyCounts,jdbcType=INTEGER},
@@ -159,7 +159,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.kj.commdityinfo.bean.orderItemExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.kj.commdityinfo.bean.OrderItemExample" resultType="java.lang.Long">
     select count(*) from order_item
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -174,8 +174,8 @@
       <if test="record.itemId != null">
         item_id = #{record.itemId,jdbcType=INTEGER},
       </if>
-      <if test="record.orderId != null">
-        order_id = #{record.orderId,jdbcType=INTEGER},
+      <if test="record.orderNum != null">
+        order_num = #{record.orderNum,jdbcType=VARCHAR},
       </if>
       <if test="record.buyCounts != null">
         buy_counts = #{record.buyCounts,jdbcType=INTEGER},
@@ -198,7 +198,7 @@
     update order_item
     set order_item_id = #{record.orderItemId,jdbcType=INTEGER},
       item_id = #{record.itemId,jdbcType=INTEGER},
-      order_id = #{record.orderId,jdbcType=INTEGER},
+      order_num = #{record.orderNum,jdbcType=VARCHAR},
       buy_counts = #{record.buyCounts,jdbcType=INTEGER},
       price = #{record.price,jdbcType=DOUBLE},
       paid = #{record.paid,jdbcType=DOUBLE},
@@ -207,14 +207,14 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.kj.commdityinfo.bean.orderItem">
+  <update id="updateByPrimaryKeySelective" parameterType="com.kj.commdityinfo.bean.OrderItem">
     update order_item
     <set>
       <if test="itemId != null">
         item_id = #{itemId,jdbcType=INTEGER},
       </if>
-      <if test="orderId != null">
-        order_id = #{orderId,jdbcType=INTEGER},
+      <if test="orderNum != null">
+        order_num = #{orderNum,jdbcType=VARCHAR},
       </if>
       <if test="buyCounts != null">
         buy_counts = #{buyCounts,jdbcType=INTEGER},
@@ -231,10 +231,10 @@
     </set>
     where order_item_id = #{orderItemId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.kj.commdityinfo.bean.orderItem">
+  <update id="updateByPrimaryKey" parameterType="com.kj.commdityinfo.bean.OrderItem">
     update order_item
     set item_id = #{itemId,jdbcType=INTEGER},
-      order_id = #{orderId,jdbcType=INTEGER},
+      order_num = #{orderNum,jdbcType=VARCHAR},
       buy_counts = #{buyCounts,jdbcType=INTEGER},
       price = #{price,jdbcType=DOUBLE},
       paid = #{paid,jdbcType=DOUBLE},

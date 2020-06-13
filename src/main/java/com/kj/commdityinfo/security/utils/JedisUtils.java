@@ -14,6 +14,9 @@ import java.util.ResourceBundle;
  */
 public class JedisUtils {
 
+    //默认的在redis中存放的时间(一天)
+    public static final Integer TIME = 60 * 60 * 24;
+
     private static JedisPool jedisPool = null;
     private static JedisPoolConfig jedisPoolConfig = null;
 

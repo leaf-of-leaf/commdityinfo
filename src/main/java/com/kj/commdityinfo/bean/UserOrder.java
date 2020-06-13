@@ -1,15 +1,25 @@
 package com.kj.commdityinfo.bean;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
 public class UserOrder implements Serializable {
+
+    public static final Integer UNPAY = 0;
+    public static final Integer PAYING = 1;
+    public static final Integer SUCCESS = 2;
+
+
     private Integer orderId;
 
+    @NotNull
     private String orderNum;
 
+    @NotNull
     private String orderName;
 
+    @NotNull
     private String orderDescription;
 
     private Double paidAccount;
@@ -18,6 +28,7 @@ public class UserOrder implements Serializable {
 
     private Integer status;
 
+    @NotNull
     private Integer userId;
 
     private User user;

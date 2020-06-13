@@ -21,14 +21,13 @@ public class AlipayConfig {
     /**
      * 买家付款成功后,如果接口中指定有return_url，买家付完款后会跳到return_url所在的页面，这个页面可以展示给客户看，且该页面只有当付款成功时才会跳转
      */
-    public static String return_url = "http://47.115.1.253:8082/return";
+    public static String return_url = "http://47.115.1.253:8083/return";
     /**
      * 服务器后台通知。这个页面只在后台程序异步运行，即买家和卖家都看不到。买家付完款后，支付宝会调用该接口并
      * 把反馈信息POST发送至该页面。在这个页面可根据支付宝传递过来的参数进行商户本身的业务操作且需要在页面上打
      * 印出一个success给支付宝，如果反馈给支付宝的不是success，支付宝将会继续调用这个页面
-     *
      */
-    public static String notify_url = "http://47.115.1.253:8082/notify";
+    public static String notify_url = "http://47.115.1.253:8083/notify";
     //日志存放
 //    public static final String LOG_PATH = "E://alipay.log";
 
