@@ -74,6 +74,8 @@ public class ValidataCodeFilter extends OncePerRequestFilter {
         //redis中存放的正确的图形验证码
         String codeInRedis = (String) JedisUtils.get(uuid);
 
+        System.out.println("codeInRequest:" + codeInRequest);
+        System.out.println("codeInRedis:" + codeInRedis);
         //此时只有图形验证码存在
         if (StringUtils.isEmpty(codeInRequest)) {
             throw new ValidateCodeException("图形验证码不能为空！");

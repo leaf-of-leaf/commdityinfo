@@ -72,6 +72,12 @@ public class UserServiceImpl implements UserService {
         return users.get(0);
     }
 
+
+    @Override
+    public User findUserAndRoleByMobile(String mobile) {
+        return userMapper.findUserAndRoleByMobile(mobile);
+    }
+
     @Override
     public User getUserInfo() throws Exception {
 //       this.findUserByName()

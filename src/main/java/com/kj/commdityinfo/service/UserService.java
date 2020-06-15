@@ -43,6 +43,13 @@ public interface UserService {
      */
     User findUserByName(String name) throws Exception;
 
+    /**
+     * 通过mobile查询User
+     * @param mobile
+     * @return
+     */
+    User findUserAndRoleByMobile(String mobile);
+
 
     /**
      * 获取当前登录的用户信息

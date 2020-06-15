@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.kj.commdityinfo.CommdityinfoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.584 s - in com.kj.commdityinfo.CommdityinfoApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.975 s - in com.kj.commdityinfo.CommdityinfoApplicationTests

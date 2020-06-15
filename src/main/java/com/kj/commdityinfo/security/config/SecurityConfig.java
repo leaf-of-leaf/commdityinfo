@@ -50,6 +50,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired(required = false)
     private DaoAuthenticationProvider daoAuthenticationProvider;
 
+    @Autowired
+    private MyLoginUrlAuthenticationEntryPoint myLoginUrlAuthenticationEntryPoint;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         //需要添加添加配置，不然authenticationManager()返回为null
@@ -86,6 +89,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()    // 所有请求
                 .authenticated() // 都需要认证
                 .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(myLoginUrlAuthenticationEntryPoint)
+                .and()
                 .csrf().disable()
                 .addFilterBefore(validataCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 //token的授权
@@ -99,11 +105,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 //                .apply(jwtAuthenticationConfig)
 //                .and()
-                .cors()  //支持跨域
+                .cors() //支持跨域
                 .and()   //添加header设置，支持跨域和ajax请求
                 .headers().addHeaderWriter(new StaticHeadersWriter(Arrays.asList(
-                new Header("Access-Control-Expose-Headers","Authorization"),
-                new Header("Access-Control-Allow-Credentials", "true"))));
+//                new Header("Access-Control-Expose-Headers","Authorization"),
+                new Header("Content-Type", "application/json"))));
     }
 
     @Bean
