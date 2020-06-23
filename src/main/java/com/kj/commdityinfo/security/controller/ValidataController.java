@@ -1,5 +1,6 @@
 package com.kj.commdityinfo.security.controller;
 
+import cn.hutool.http.ContentType;
 import com.kj.commdityinfo.security.bean.ImageCode;
 import com.kj.commdityinfo.security.utils.JedisUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,15 +31,19 @@ public class ValidataController {
 
     @GetMapping("/code/img")
     public void createImageCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
 
+        response.setContentType("image/jpeg");
+        System.out.println();
         ImageCode imageCode = createImageCode();
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         JedisUtils.setex(uuid, EXPIRETIME, imageCode.getCode());
         Cookie uCookie = new Cookie("uuid", uuid);
         uCookie.setPath("/");
-        uCookie.setMaxAge(EXPIRETIME);
+//        uCookie.setMaxAge(EXPIRETIME);
+//        String domain  = request.getServerName().equals("localhost") ? "127.0.0.1" : request.getServerName();
+//        uCookie.setDomain(domain);
         response.addCookie(uCookie);
+
         ImageIO.write(imageCode.getImage(), "jpeg", response.getOutputStream());
         System.out.println(imageCode.getCode());
     }

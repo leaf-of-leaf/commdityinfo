@@ -27,11 +27,16 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public List<Item> findItemsByCateId(Integer cateId) throws Exception {
+    public List<Item> findItemsByCateId(Integer cateId, Integer page, Integer pageSize) throws Exception {
         if(cateId == null || cateId <= 0){
             throw new SystemException("id不正确");
         }
         ItemExample itemExample = new ItemExample();
+
+        //分页查询
+        itemExample.setLimit((page - 1) * pageSize);
+        itemExample.setOffset(pageSize);
+
         itemExample.createCriteria().andCateIdEqualTo(cateId);
         return itemMapper.selectByExample(itemExample);
     }
@@ -63,4 +68,11 @@ public class ItemServiceImpl implements ItemService {
         itemMapper.deleteByPrimaryKey(itemId);
     }
 
+
+    @Override
+    public Long countByCateId(Integer cateId) {
+        ItemExample itemExample = new ItemExample();
+        itemExample.createCriteria().andCateIdEqualTo(cateId);
+        return itemMapper.countByExample(itemExample);
+    }
 }

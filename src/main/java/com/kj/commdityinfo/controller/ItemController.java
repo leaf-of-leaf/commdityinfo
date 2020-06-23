@@ -34,9 +34,9 @@ public class ItemController {
     }
     @ApiOperation(value = "通过分类id查询Item")
     @GetMapping("/findItemsByCateId")
-    public Message<Object> findItemsByCateId(Integer cateId){
+    public Message<Object> findItemsByCateId(Integer cateId, Integer page, Integer pageSize){
         try{
-            return MessageUtil.success(itemService.findItemsByCateId(cateId));
+            return MessageUtil.successPage(page,itemService.countByCateId(cateId),pageSize,itemService.findItemsByCateId(cateId, page, pageSize));
         } catch (Exception e){
             return MessageUtil.error(400, e.getMessage());
         }

@@ -24,13 +24,13 @@ public class JwtUtils {
      * 有效时间
      */
     public static final long EXPIRITION = 1000 * 60 * 60 * 24;
-//    public static final long EXPIRITION = 1000 * 60;
+//    public static final long EXPIRITION = 1000 * 60 * 10;
 
     /**
      * 可用时间
      * 有效期-可用时间=刷新时间段
      */
-    public static final long ENABLETIME = 1000 * 60 * 10;
+    public static final long ENABLETIME = 1000 * 10;
 
     public static final String APPSECRET_KEY = "kuangjie";
 
@@ -45,22 +45,22 @@ public class JwtUtils {
      * @param role
      * @return
      */
-    public static String createToken(String username,String role,String password) {
-
-        Map<String,Object> map = new HashMap<>(16);
-        map.put(ROLE_CLAIMS, role);
-
-        String token = Jwts
-                .builder()
-                .setSubject(username)
-                .setClaims(map)
-                .claim("username",username)
-                .claim("password", password)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRITION))
-                .signWith(SignatureAlgorithm.HS256, APPSECRET_KEY).compact();
-        return token;
-    }
+//    public static String createToken(String username,String password) {
+//
+//        Map<String,Object> map = new HashMap<>(16);
+//        map.put(ROLE_CLAIMS, role);
+//
+//        String token = Jwts
+//                .builder()
+//                .setSubject(username)
+//                .setClaims(map)
+//                .claim("username",username)
+//                .claim("password", password)
+//                .setIssuedAt(new Date())
+//                .setExpiration(new Date(System.currentTimeMillis() + EXPIRITION))
+//                .signWith(SignatureAlgorithm.HS256, APPSECRET_KEY).compact();
+//        return token;
+//    }
 
     /**
      * 生成token
@@ -70,14 +70,11 @@ public class JwtUtils {
      */
     public static String createToken(String username,String role) {
 
-        Map<String,Object> map = new HashMap<>(16);
-        map.put(ROLE_CLAIMS, role);
-
         String token = Jwts
                 .builder()
                 .setSubject(username)
-                .setClaims(map)
                 .claim("username",username)
+                .claim("role",role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRITION))
                 .signWith(SignatureAlgorithm.HS256, APPSECRET_KEY).compact();

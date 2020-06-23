@@ -40,12 +40,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUser(User user) throws Exception{
         Integer userId = user.getUserId();
-        if(userId <= 0){
-            throw new SystemException("userId不正确");
-        }
         if(userId == null){
             user.setRoleId(5);
-            userMapper.insertSelective(user);
+            try{
+                user.setActive(1);
+                userMapper.insertSelective(user);
+            }catch (Exception e){
+                throw new SystemException("已存在");
+            }
+            return;
+        }
+        if(userId <= 0){
+            throw new SystemException("userId不正确");
         }
         if(userMapper.isExistsByUserId(userId) != null) {
             userMapper.updateByPrimaryKeySelective(user);

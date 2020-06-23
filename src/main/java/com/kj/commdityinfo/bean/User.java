@@ -1,6 +1,7 @@
 package com.kj.commdityinfo.bean;
 
 import com.kj.commdityinfo.annotation.IgnoreSwaggerParameter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +15,7 @@ public class User implements Serializable {
 
     private String address;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birth;
 
     private Integer sex;

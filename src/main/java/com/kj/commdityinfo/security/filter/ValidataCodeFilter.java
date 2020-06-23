@@ -1,5 +1,6 @@
 package com.kj.commdityinfo.security.filter;
 
+import com.kj.commdityinfo.security.controller.ValidataController;
 import com.kj.commdityinfo.security.exception.ValidateCodeException;
 import com.kj.commdityinfo.security.utils.HttpHandlerUtils;
 import com.kj.commdityinfo.security.utils.JedisUtils;
@@ -27,6 +28,8 @@ public class ValidataCodeFilter extends OncePerRequestFilter {
 
     @Autowired
     private AuthenticationFailureHandler authenticationFailureHandler;
+
+    private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -73,7 +76,7 @@ public class ValidataCodeFilter extends OncePerRequestFilter {
         String uuid = HttpHandlerUtils.getCookeiValue(request,"uuid");
         //redis中存放的正确的图形验证码
         String codeInRedis = (String) JedisUtils.get(uuid);
-
+        System.out.println("uuid:" + uuid);
         System.out.println("codeInRequest:" + codeInRequest);
         System.out.println("codeInRedis:" + codeInRedis);
         //此时只有图形验证码存在

@@ -1,6 +1,7 @@
 package com.kj.commdityinfo.controller;
 
 import com.kj.commdityinfo.bean.User;
+import com.kj.commdityinfo.security.utils.JedisUtils;
 import com.kj.commdityinfo.security.utils.JwtUtils;
 import com.kj.commdityinfo.service.UserService;
 import com.kj.commdityinfo.utils.Message;
@@ -80,6 +81,19 @@ public class UserController {
             String header = request.getHeader(JwtUtils.TOKEN_HEADER);
             String token = header.replaceAll(JwtUtils.TOKEN_PREFIX,"");
             return MessageUtil.success(userService.findUserByName(JwtUtils.getUsername(token)));
+        } catch (Exception e){
+            return MessageUtil.error(400,e.getMessage());
+        }
+    }
+
+    @ApiOperation(value = "退出登录")
+    @GetMapping("/logout")
+    public Message<Object> logout(HttpServletRequest request){
+        try{
+            String header = request.getHeader(JwtUtils.TOKEN_HEADER);
+            String token = header.replaceAll(JwtUtils.TOKEN_PREFIX,"");
+            JedisUtils.del(JwtUtils.getUsername(token));
+            return MessageUtil.success("退出成功");
         } catch (Exception e){
             return MessageUtil.error(400,e.getMessage());
         }

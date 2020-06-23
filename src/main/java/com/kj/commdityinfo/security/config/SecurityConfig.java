@@ -65,6 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
+
         /**
          * 这两个都是继承WebSecurityConfigurerAdapter后重写的方法
          * http.permitAll不会绕开springsecurity验证，相当于是允许该路径通过
@@ -78,7 +79,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        //进入时，会弹出窗口，提示输入用户名密码，而formLogin,则是转到对应的页面进行认证
+//        http.httpBasic()
         http.formLogin()
                 .loginPage("/login.html")
                 .loginProcessingUrl("/login")
@@ -151,7 +153,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/webjars*//**",
                 "/phonepay",
                 "/return",
-                "/notify"
+                "/notify",
+                "/saveUser",
+                "/actuator",
+                "/actuator/**"
         });
     }
 

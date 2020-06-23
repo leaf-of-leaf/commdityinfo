@@ -41,11 +41,20 @@ public class OrderItemController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-    @ApiOperation(value = "通过用户id查询该用户下的对应订单号的 orderNum  为“”则为在购物车中的")
+    @ApiOperation(value = "查询所有关于itemid的订单项")
     @GetMapping("/findOrderItemByItemId")
     public Message<Object> findOrderItemByItemId(Integer itemId){
         try{
             return MessageUtil.success(orderItemService.findOrderItemByItemId(itemId));
+        } catch (Exception e){
+            return MessageUtil.error(400, e.getMessage());
+        }
+    }
+    @ApiOperation(value = "通过orderNum查询userId用户下的,当orderNum为‘’时查询当前在购物车里的")
+    @GetMapping("/findOrderItemByUserIdAndOrderNum")
+    public Message<Object> findOrderItemByUserIdAndOrderNum(Integer userId, String orderNum){
+        try{
+            return MessageUtil.success(orderItemService.findOrderItemByUserIdAndOrderNum(userId, orderNum));
         } catch (Exception e){
             return MessageUtil.error(400, e.getMessage());
         }

@@ -1,10 +1,14 @@
 package com.kj.commdityinfo.bean;
 
 import com.kj.commdityinfo.annotation.IgnoreSwaggerParameter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class Item implements Serializable {
     private Integer itemId;
 

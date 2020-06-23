@@ -1,7 +1,9 @@
 package com.kj.commdityinfo.aop;
 
 import com.kj.commdityinfo.bean.Log;
+import com.kj.commdityinfo.bean.User;
 import com.kj.commdityinfo.security.utils.JwtUtils;
+import com.kj.commdityinfo.utils.Message;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -43,12 +45,18 @@ public class LogMonitor {
         Object[] args = pjp.getArgs();
         //设置token
         String authorization = request.getHeader(JwtUtils.TOKEN_HEADER);
-//        String token = authorization.replaceAll(JwtUtils.TOKEN_PREFIX, "");
-//        log.setToken(token);
         try{
                 //前置
             Long startTime = System.currentTimeMillis();
             result = pjp.proceed(args);
+            if(result instanceof Message){
+                Message<Object> message = (Message<Object>) result;
+                Object data = message.getData();
+                if(data instanceof User){
+                    User user = (User) data;
+                    user.setPassword("不可获取");
+                }
+            }
             Long endTime = System.currentTimeMillis();
                 //后置
             log.setUrl(request.getRequestURI());

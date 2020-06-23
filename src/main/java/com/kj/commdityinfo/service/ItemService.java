@@ -26,7 +26,7 @@ public interface ItemService {
      * @return
      * @throws Exception
      */
-    List<Item> findItemsByCateId(Integer cateId) throws Exception;
+    List<Item> findItemsByCateId(Integer cateId, Integer page, Integer pageSize) throws Exception;
 
     /**
      * 通过ItemId查询Item
@@ -48,5 +48,6 @@ public interface ItemService {
     void deleteItemByItemId(Integer itemId);
 
 
+    Long countByCateId(Integer cateId);
 
 }

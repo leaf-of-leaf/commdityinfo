@@ -24,8 +24,6 @@ import java.io.PrintWriter;
 @Component
 public class SuccessAuthenticationHandler implements AuthenticationSuccessHandler {
 
-
-
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
@@ -44,3 +42,4 @@ public class SuccessAuthenticationHandler implements AuthenticationSuccessHandle
         writer.close();
     }
 }
+

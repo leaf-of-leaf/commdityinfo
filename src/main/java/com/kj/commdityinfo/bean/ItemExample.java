@@ -6,11 +6,32 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ItemExample {
+
+    private Integer offset;
+
+    private Integer limit;
+
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
+
+    public Integer getOffset() {
+        return offset;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
+    }
+
+    public Integer getLimit() {
+        return limit;
+    }
+
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
 
     public ItemExample() {
         oredCriteria = new ArrayList<Criteria>();

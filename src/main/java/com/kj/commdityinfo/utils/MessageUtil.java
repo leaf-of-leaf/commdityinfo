@@ -12,6 +12,12 @@ public class MessageUtil {
         return new Message<>(200, "success", obj, System.currentTimeMillis());
     }
     /**
+     * 分页成功，返回总数，当前页，每页条数
+     */
+    public static <E>Message<E> successPage(Integer page, Long total, Integer pageSize, E obj){
+        return new Message<>(200,"success",page,pageSize,total,obj, System.currentTimeMillis());
+    }
+    /**
      * 成功,但无返回数据
      * */
     public static <E>Message<E> success(){
