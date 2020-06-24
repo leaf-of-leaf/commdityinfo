@@ -30,7 +30,7 @@ public class JwtUtils {
      * 可用时间
      * 有效期-可用时间=刷新时间段
      */
-    public static final long ENABLETIME = 1000 * 10;
+    public static final long ENABLETIME = 1000 * 60 * 30;
 
     public static final String APPSECRET_KEY = "kuangjie";
 
@@ -128,7 +128,7 @@ public class JwtUtils {
      */
     public static String getUserRole(String token){
         Claims claims = Jwts.parser().setSigningKey(APPSECRET_KEY).parseClaimsJws(token).getBody();
-        return claims.get("rol").toString();
+        return claims.get("role").toString();
     }
 
     /**

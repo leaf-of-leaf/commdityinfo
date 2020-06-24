@@ -26,6 +26,8 @@ public class Item implements Serializable {
 
     private Double price;
 
+    private Integer num;
+
     private String priceLink;
 
     private Integer isexists;
@@ -103,6 +105,14 @@ public class Item implements Serializable {
         this.price = price;
     }
 
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
     public String getPriceLink() {
         return priceLink;
     }
@@ -157,6 +167,7 @@ public class Item implements Serializable {
         sb.append(", star=").append(star);
         sb.append(", personNum=").append(personNum);
         sb.append(", price=").append(price);
+        sb.append(", num=").append(num);
         sb.append(", priceLink=").append(priceLink);
         sb.append(", isexists=").append(isexists);
         sb.append(", img=").append(img);

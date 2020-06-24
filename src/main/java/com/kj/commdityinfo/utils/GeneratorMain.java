@@ -11,39 +11,39 @@ public class GeneratorMain {
     }
 
     public static void generator(){
-       // List<String> warnings = new ArrayList<String>();
-       // boolean overwrite = true;
-       // String genCfg = "/generatorConfig.xml";
-
-       // File configFile = new File(GeneratorMain.class.getResource(genCfg).getFile());
-       // ConfigurationParser cp = new ConfigurationParser(warnings);
-       // Configuration config = null;
-       // try {
-
-       //     config = cp.parseConfiguration(configFile);
-       // } catch (IOException e) {
-       //     e.printStackTrace();
-       // } catch (XMLParserException e) {
-       //     e.printStackTrace();
-       // }
-       // DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-       // MyBatisGenerator myBatisGenerator = null;
-       // try {
-       //     myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-
-       // } catch (InvalidConfigurationException e) {
-       //     e.printStackTrace();
-       // }
-       // try {
-       //     myBatisGenerator.generate(null);
-
-       // } catch (SQLException e) {
-       //     e.printStackTrace();
-       // } catch (IOException e) {
-       //     e.printStackTrace();
-       // } catch (InterruptedException e) {
-       //     e.printStackTrace();
-       // }
-       // System.out.println("代码反向生成完毕-----");
+//        List<String> warnings = new ArrayList<String>();
+//        boolean overwrite = true;
+//        String genCfg = "/generatorConfig.xml";
+//
+//        File configFile = new File(GeneratorMain.class.getResource(genCfg).getFile());
+//        ConfigurationParser cp = new ConfigurationParser(warnings);
+//        Configuration config = null;
+//        try {
+//
+//            config = cp.parseConfiguration(configFile);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (XMLParserException e) {
+//            e.printStackTrace();
+//        }
+//        DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+//        MyBatisGenerator myBatisGenerator = null;
+//        try {
+//            myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
+//
+//        } catch (InvalidConfigurationException e) {
+//            e.printStackTrace();
+//        }
+//        try {
+//            myBatisGenerator.generate(null);
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println("代码反向生成完毕-----");
     }
 }

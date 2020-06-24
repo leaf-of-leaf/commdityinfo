@@ -53,6 +53,7 @@ E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\bean\OrderItem.
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\security\config\SmsUserDetailsService.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\service\impl\CommentServiceImpl.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\service\ItemService.java
+E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\utils\AddItemNumToCache.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\bean\NavItem.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\utils\Message.java
 E:\IDEAworkspaces\commdityinfo\src\main\java\com\kj\commdityinfo\bean\UserExample.java

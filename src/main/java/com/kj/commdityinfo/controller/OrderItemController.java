@@ -50,7 +50,7 @@ public class OrderItemController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
-    @ApiOperation(value = "通过orderNum查询userId用户下的,当orderNum为‘’时查询当前在购物车里的")
+    @ApiOperation(value = "通过orderNum查询userId用户下的,当orderNum为''或者'empty'时查询当前在购物车里的")
     @GetMapping("/findOrderItemByUserIdAndOrderNum")
     public Message<Object> findOrderItemByUserIdAndOrderNum(Integer userId, String orderNum){
         try{

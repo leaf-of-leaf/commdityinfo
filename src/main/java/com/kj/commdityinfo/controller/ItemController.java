@@ -70,4 +70,14 @@ public class ItemController {
             return MessageUtil.error(400, e.getMessage());
         }
     }
+
+    @ApiOperation(value = "通过名称模糊查找")
+    @GetMapping("/findItemByName")
+    public Message<Object> findItemByName(String itemName, Integer page, Integer pageSize){
+        try{
+            return MessageUtil.successPage(page,itemService.countByName(itemName),pageSize,itemService.findItemByName(itemName, page, pageSize));
+        } catch (Exception e){
+            return MessageUtil.error(400, e.getMessage());
+        }
+    }
 }

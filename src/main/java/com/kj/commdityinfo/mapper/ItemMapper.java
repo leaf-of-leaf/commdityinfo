@@ -29,4 +29,6 @@ public interface ItemMapper {
     int updateByPrimaryKey(Item record);
 
     Integer isExistsByItemId(Integer itemId);
+
+    void updateItemByitemIdAndNum(@Param("id") Integer id, @Param("num") Integer num);
 }

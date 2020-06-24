@@ -1,20 +1,26 @@
 package com.kj.commdityinfo.service.impl;
 
+import com.kj.commdityinfo.bean.Item;
 import com.kj.commdityinfo.bean.OrderItem;
 import com.kj.commdityinfo.bean.UserOrder;
 import com.kj.commdityinfo.bean.UserOrderExample;
 import com.kj.commdityinfo.exception.SystemException;
+import com.kj.commdityinfo.mapper.ItemMapper;
 import com.kj.commdityinfo.mapper.UserOrderMapper;
+import com.kj.commdityinfo.security.utils.JedisUtils;
 import com.kj.commdityinfo.service.OrderItemService;
 import com.kj.commdityinfo.service.UserOrderService;
 import com.kj.commdityinfo.utils.DoubleUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.sql.SQLException;
+import java.util.*;
 
 /**
  * @author kj
@@ -29,6 +35,9 @@ public class UserOrderServiceImpl implements UserOrderService {
 
     @Autowired(required = false)
     private UserOrderMapper userOrderMapper;
+
+    @Autowired(required = false)
+    private ItemMapper itemMapper;
 
 
 
@@ -83,17 +92,34 @@ public class UserOrderServiceImpl implements UserOrderService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public void deleteUserOrderByOrderNum(String orderNum) {
+
         if(orderNum == null){
             throw new SystemException("参数有误");
         }
 
+        List<OrderItem> orderItemByOrderNum = orderItemService.findOrderItemByOrderNum(orderNum);
+        //把redis中的库存加回来,同时mysql库存也要加回来
+        for (OrderItem orderItem : orderItemByOrderNum){
+            JedisUtils.hincrby("item" + orderItem.getItemId(), "num",Long.valueOf(orderItem.getBuyCounts().toString()));
+            //因为通过主键索引，且为innoDB,所以默认为行锁 且为num = num + #{num}
+            itemMapper.updateItemByitemIdAndNum(orderItem.getItemId(),orderItem.getBuyCounts());
+        }
+
+        //删除订单项
+        orderItemService.deleteOrderItemByOrderNum(orderNum);
+
+        //删除用户订单订单
         UserOrderExample userOrderExample = new UserOrderExample();
         userOrderExample.createCriteria().andOrderNumEqualTo(orderNum);
         userOrderMapper.deleteByExample(userOrderExample);
+
     }
 
     @Override
+    //当多个商品扣除数量时,当其中一个过长的阻塞，直接回滚
+    @Transactional(rollbackFor = Exception.class,isolation = Isolation.READ_COMMITTED, timeout = 5)
     public void insertUserOrder(UserOrder userOrder) throws Exception {
         if(userOrder == null){
             throw new SystemException("参数有误");
@@ -105,6 +131,40 @@ public class UserOrderServiceImpl implements UserOrderService {
 
         List<OrderItem> orderItemByUserId = orderItemService.findOrderItemByUserIdAndOrderNum(userOrder.getUserId(), "");
         Double total = 0d;
+
+        //将购物车中的每个商品的库存减去
+        Transaction multi = null;
+        try{
+            Jedis resource = JedisUtils.getResource();
+            //redis开启事务
+            multi = resource.multi();
+            for(OrderItem orderItem: orderItemByUserId){
+                //扣除num
+                Map<String, String> hmget = JedisUtils.hmget("item" + orderItem.getItemId(), "num", "price");
+                Integer numInRedis = Integer.valueOf(hmget.get("num"));
+
+                int i = 0;
+                do{
+                    //分布式锁的实现
+                    if(!JedisUtils.setnx("lock_item"+ orderItem.getItemId() +"_sub", "1").equals(Long.valueOf(0))){
+                        System.out.println("123");
+                        subNum(orderItem.getItemId(),numInRedis,orderItem.getBuyCounts(), multi);
+                        break;
+                    }
+                    Thread.sleep(((int)(Math.random() * 2) + 1));
+                }while ((i++) < 2);
+                if(i == 2){
+                    throw new SystemException("锁竞争激烈，两次均为拿到锁");
+                }
+            }
+            //redis结束事务
+
+            System.out.println("事务执行完成");
+            multi.exec();
+        }catch (Exception e){
+            multi.discard();
+            throw new SystemException(e.getMessage());
+        }
 
         //订单号生成
         List<Integer> orderItemIds = new ArrayList<>();
@@ -144,5 +204,33 @@ public class UserOrderServiceImpl implements UserOrderService {
         userOrderExample.createCriteria().andOrderNumEqualTo(orderNum);
 
         userOrderMapper.updateByExampleSelective(userOrder, userOrderExample);
+    }
+
+    /**
+     * 业务逻辑操作
+     */
+    private void subNum(Integer itemId, Integer numInRedis, Integer numInRequest, Transaction transaction) throws Exception{
+
+        JedisUtils.expire("lock_item" + itemId + "_sub", 5);
+
+        //业务流程
+        Integer result =  numInRedis - numInRequest;
+        if(result >= 0){
+            HashMap<String, String> map = new HashMap<>(16);
+            map.put("num", result + "");
+            transaction.hmset("item" + itemId, map);
+            try{
+                itemMapper.updateItemByitemIdAndNum(itemId, (-numInRequest));
+            } catch (Exception e){
+                throw new SystemException("由于长久的阻塞,update失败");
+            }
+        }else {
+            //操作完成以后手动释放锁
+            JedisUtils.del("lock_item"+ itemId +"_sub");
+            throw new SystemException("检测到购买数量与库存不符,请对商品数量进行核查");
+        }
+
+        //操作完成以后手动释放锁
+        JedisUtils.del("lock_item"+ itemId +"_sub");
     }
 }

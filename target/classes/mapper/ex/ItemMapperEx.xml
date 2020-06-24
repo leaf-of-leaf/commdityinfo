@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kj.commdityinfo.mapper.ItemMapper">
+
+<!--    <sql id="Base_Column_List">-->
+<!--        item_id, name, location, sale_time, content, star, person_num, price, num, price_link,-->
+<!--    isexists, img, cate_id-->
+<!--    </sql>-->
+
+    <select id="findItemByitemIdForUpdate" parameterType="int">
+        select
+        <include refid="Base_Column_List"/>
+        from item
+        where item_id = #{id}
+        for update
+    </select>
+
+    <update id="updateItemByitemIdAndNum">
+        update item
+        set num = num + #{num}
+        where item_id = #{id}
+    </update>
+</mapper>

@@ -47,7 +47,7 @@ public interface OrderItemService {
      * 通过订单项id删除订单项
      * @param orderItemId
      */
-    void deleteOrderItem(Integer orderItemId);
+    void deleteOrderItem(Integer orderItemId) throws Exception;
 
     /**
      * 删除该用户下的所有订单项
@@ -74,4 +74,10 @@ public interface OrderItemService {
      * @param orderNum
      */
     void updateOrderItems(Integer[] ids, String orderNum);
+
+    /**
+     * 通过orderNum删除orderItems
+     * @param orderNum
+     */
+    void deleteOrderItemByOrderNum(String orderNum);
 }

@@ -242,6 +242,6 @@
     where order_item_id = #{orderItemId,jdbcType=INTEGER}
   </update>
   <select id="getItem" resultMap="com.kj.commdityinfo.mapper.ItemMapper.BaseResultMap">
-    select item_id,name,location,sale_time,content,star,person_num,price,price_link,isexists,img,cate_id from item where item_id=#{itemId}
+    select item_id,name,location,sale_time,content,star,person_num,price,price_link,isexists,img,cate_id,num from item where item_id=#{itemId}
   </select>
 </mapper>

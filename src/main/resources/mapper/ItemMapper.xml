@@ -10,6 +10,7 @@
     <result column="star" jdbcType="INTEGER" property="star" />
     <result column="person_num" jdbcType="INTEGER" property="personNum" />
     <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="num" jdbcType="INTEGER" property="num" />
     <result column="price_link" jdbcType="VARCHAR" property="priceLink" />
     <result column="isexists" jdbcType="INTEGER" property="isexists" />
     <result column="img" jdbcType="VARCHAR" property="img" />
@@ -75,7 +76,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    item_id, name, location, sale_time, content, star, person_num, price, price_link, 
+    item_id, name, location, sale_time, content, star, person_num, price, num, price_link, 
     isexists, img, cate_id
   </sql>
   <select id="selectByExample" parameterType="com.kj.commdityinfo.bean.ItemExample" resultMap="BaseResultMap">
@@ -114,14 +115,14 @@
   <insert id="insert" parameterType="com.kj.commdityinfo.bean.Item">
     insert into item (item_id, name, location, 
       sale_time, content, star, 
-      person_num, price, price_link, 
-      isexists, img, cate_id
-      )
+      person_num, price, num, 
+      price_link, isexists, img, 
+      cate_id)
     values (#{itemId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
       #{saleTime,jdbcType=DATE}, #{content,jdbcType=VARCHAR}, #{star,jdbcType=INTEGER}, 
-      #{personNum,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{priceLink,jdbcType=VARCHAR}, 
-      #{isexists,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, #{cateId,jdbcType=INTEGER}
-      )
+      #{personNum,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{num,jdbcType=INTEGER}, 
+      #{priceLink,jdbcType=VARCHAR}, #{isexists,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, 
+      #{cateId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kj.commdityinfo.bean.Item">
     insert into item
@@ -149,6 +150,9 @@
       </if>
       <if test="price != null">
         price,
+      </if>
+      <if test="num != null">
+        num,
       </if>
       <if test="priceLink != null">
         price_link,
@@ -187,6 +191,9 @@
       </if>
       <if test="price != null">
         #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
       </if>
       <if test="priceLink != null">
         #{priceLink,jdbcType=VARCHAR},
@@ -235,6 +242,9 @@
       <if test="record.price != null">
         price = #{record.price,jdbcType=DOUBLE},
       </if>
+      <if test="record.num != null">
+        num = #{record.num,jdbcType=INTEGER},
+      </if>
       <if test="record.priceLink != null">
         price_link = #{record.priceLink,jdbcType=VARCHAR},
       </if>
@@ -262,6 +272,7 @@
       star = #{record.star,jdbcType=INTEGER},
       person_num = #{record.personNum,jdbcType=INTEGER},
       price = #{record.price,jdbcType=DOUBLE},
+      num = #{record.num,jdbcType=INTEGER},
       price_link = #{record.priceLink,jdbcType=VARCHAR},
       isexists = #{record.isexists,jdbcType=INTEGER},
       img = #{record.img,jdbcType=VARCHAR},
@@ -294,6 +305,9 @@
       <if test="price != null">
         price = #{price,jdbcType=DOUBLE},
       </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
       <if test="priceLink != null">
         price_link = #{priceLink,jdbcType=VARCHAR},
       </if>
@@ -318,6 +332,7 @@
       star = #{star,jdbcType=INTEGER},
       person_num = #{personNum,jdbcType=INTEGER},
       price = #{price,jdbcType=DOUBLE},
+      num = #{num,jdbcType=INTEGER},
       price_link = #{priceLink,jdbcType=VARCHAR},
       isexists = #{isexists,jdbcType=INTEGER},
       img = #{img,jdbcType=VARCHAR},

@@ -54,7 +54,7 @@ public class ExcelReadUtils {
             Integer categoryId = Integer.valueOf(categoryIdStr);
             String location = row.getCell(7).toString();
             String imgUrl = itemId.toString() + ".jpg";
-            Item item = new Item(itemId,name,location,new Date(System.currentTimeMillis()),description,1,random.nextInt(1000),price,"https://www.123.com", 1, imgUrl, categoryId, null);
+            Item item = new Item(itemId,name,location,new Date(System.currentTimeMillis()),description,1,random.nextInt(1000),price, 0,"https://www.123.com", 1, imgUrl, categoryId, null);
 //            Item item = new Item(null, name, "http://", price, description, 0, categoryId, 0, 0.0d, 0, unit, null, null);
             items.add(item);
         }

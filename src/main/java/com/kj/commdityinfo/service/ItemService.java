@@ -50,4 +50,9 @@ public interface ItemService {
 
     Long countByCateId(Integer cateId);
 
+
+    List<Item> findItemByName(String itemName, Integer page, Integer pageSize);
+
+    Long countByName(String itemName);
+
 }

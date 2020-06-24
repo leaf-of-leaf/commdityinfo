@@ -51,11 +51,12 @@ public class JwtAuthorityFilter extends BasicAuthenticationFilter {
 
         String authorization = request.getHeader(JwtUtils.TOKEN_HEADER);
 
-
         if(StringUtils.isEmpty(authorization)){
             chain.doFilter(request,response);
             return;
         }
+
+        authorization = authorization.trim();
 
         if(!authorization.startsWith(JwtUtils.TOKEN_PREFIX)){
             onUnsuccessfulAuthentication(request,response,new JwtAuthenticationException("客户端传来的令牌出现错误"));
