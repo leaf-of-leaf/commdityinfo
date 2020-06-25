@@ -3,6 +3,7 @@ package com.kj.commdityinfo.security.controller;
 import cn.hutool.http.ContentType;
 import com.kj.commdityinfo.security.bean.ImageCode;
 import com.kj.commdityinfo.security.utils.JedisUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,13 @@ import java.util.UUID;
 public class ValidataController {
 
     public final static String SESSION_KEY_IMAGE_CODE = "SESSION_KEY_IMAGE_CODE";
-    private final static Integer EXPIRETIME = 60;
+
+    private static Integer EXPIRETIME;
+
+    @Value("${code.validata}")
+    public void setEXPIRETIME(Integer EXPIRETIME) {
+        ValidataController.EXPIRETIME = EXPIRETIME;
+    }
 
     @GetMapping("/code/img")
     public void createImageCode(HttpServletRequest request, HttpServletResponse response) throws IOException {

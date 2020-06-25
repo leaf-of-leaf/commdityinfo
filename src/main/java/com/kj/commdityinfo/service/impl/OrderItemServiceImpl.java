@@ -139,7 +139,6 @@ public class OrderItemServiceImpl implements OrderItemService {
         orderItem.setPaid(price * orderItem.getBuyCounts());
 
         orderItem.setOrderNum("");
-
         orderItemMapper.insertSelective(orderItem);
     }
 

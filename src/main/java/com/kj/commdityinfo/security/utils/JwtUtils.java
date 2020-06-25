@@ -4,6 +4,8 @@ import com.kj.commdityinfo.security.exception.JwtAuthenticationException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -15,6 +17,7 @@ import java.util.Map;
  * @Version 1.0
  * 自定义Jwt工具类
  */
+@Component
 public class JwtUtils {
     public static final String TOKEN_HEADER = "Authorization";
     public static final String TOKEN_PREFIX = "Bearer ";
@@ -23,14 +26,26 @@ public class JwtUtils {
     /**
      * 有效时间
      */
-    public static final long EXPIRITION = 1000 * 60 * 60 * 24;
+
+    public static long EXPIRITION;
 //    public static final long EXPIRITION = 1000 * 60 * 10;
 
     /**
      * 可用时间
      * 有效期-可用时间=刷新时间段
      */
-    public static final long ENABLETIME = 1000 * 60 * 30;
+
+    public static long ENABLETIME;
+
+    @Value("${jwt.expirition}")
+    public void setEXPIRITION(long EXPIRITION) {
+        JwtUtils.EXPIRITION = EXPIRITION;
+    }
+
+    @Value("${jwt.time}")
+    public void setENABLETIME(long ENABLETIME) {
+        JwtUtils.ENABLETIME = ENABLETIME;
+    }
 
     public static final String APPSECRET_KEY = "kuangjie";
 

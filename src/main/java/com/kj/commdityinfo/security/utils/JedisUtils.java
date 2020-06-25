@@ -2,6 +2,8 @@ package com.kj.commdityinfo.security.utils;
 
 import io.swagger.models.auth.In;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -18,6 +20,7 @@ import java.util.stream.IntStream;
  * @Date 2020/3/17 15:59
  * @Version 1.0
  */
+@Component
 public class JedisUtils {
 
     /**
@@ -28,12 +31,22 @@ public class JedisUtils {
 
 
     //默认的在redis中存放的时间(一天)
-    public static final Integer TIME = 60 * 60 * 24;
+
+    public static Integer TIME;
 
     //分布式锁对应存放的时间
-    public static  final Integer LOCKTIME = 3;
 
+    public static Integer LOCKTIME;
 
+    @Value("${time}")
+    public void setTIME(Integer TIME) {
+        JedisUtils.TIME = TIME;
+    }
+
+    @Value("${lock_time}")
+    public void setLOCKTIME(Integer LOCKTIME) {
+        JedisUtils.LOCKTIME = LOCKTIME;
+    }
 
     private static JedisPool jedisPool = null;
     private static JedisPoolConfig jedisPoolConfig = null;
@@ -139,19 +152,38 @@ public class JedisUtils {
     }
 
     //删除del
-    public static Object del(Object key){
-        Jedis jedis = getResource();
-        //jedis.auth("kuangjie");
-        long l = jedis.del(SerializeUtils.serialize(key));
-        jedis.close();
-        return l;
-    }
+//    public static Object del(Object key){
+//        Jedis jedis = getResource();
+//        //jedis.auth("kuangjie");
+//        long l = jedis.del(SerializeUtils.serialize(key));
+//        jedis.close();
+//        return l;
+//    }
 
     //删除del
-    public static Object del(String key){
+//    public static Object del(String key){
+//        Jedis jedis = getResource();
+//        //jedis.auth("kuangjie");
+//        long l = jedis.del(key);
+//        jedis.close();
+//        return l;
+//    }
+
+    /**
+     *
+     * @param key
+     * @param status 0 为字符串形式，1为二进制形式
+     * @return
+     */
+    public static Object del(Object key, Integer status){
         Jedis jedis = getResource();
-        //jedis.auth("kuangjie");
-        long l = jedis.del(key);
+        long l = 0;
+        if(status.equals(1)){
+            l = jedis.del(SerializeUtils.serialize(key));
+        }
+        if(status.equals(0)){
+            l = jedis.del((String)key);
+        }
         jedis.close();
         return l;
     }

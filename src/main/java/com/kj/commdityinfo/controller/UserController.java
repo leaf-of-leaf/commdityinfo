@@ -92,7 +92,7 @@ public class UserController {
         try{
             String header = request.getHeader(JwtUtils.TOKEN_HEADER);
             String token = header.replaceAll(JwtUtils.TOKEN_PREFIX,"");
-            JedisUtils.del(JwtUtils.getUsername(token));
+            JedisUtils.del(JwtUtils.getUsername(token), 1);
             return MessageUtil.success("退出成功");
         } catch (Exception e){
             return MessageUtil.error(400,e.getMessage());

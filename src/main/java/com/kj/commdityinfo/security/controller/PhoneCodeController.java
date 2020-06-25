@@ -6,6 +6,7 @@ import com.kj.commdityinfo.utils.Message;
 import com.kj.commdityinfo.utils.MessageUtil;
 import com.zhenzi.sms.ZhenziSmsClient;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,8 +21,22 @@ import java.util.Random;
  */
 @RestController
 public class PhoneCodeController {
-    //在redis中存放的时间
-    private final static Integer EXPIRETIME = 60;
+    //在redis中存放的时间,即手机验证码过期时间
+
+    private static Integer EXPIRETIME;
+
+
+    private static Boolean ENABLESMS;
+
+    @Value("${code.sms}")
+    public void setEXPIRETIME(Integer EXPIRETIME) {
+        PhoneCodeController.EXPIRETIME = EXPIRETIME;
+    }
+
+    @Value("${code.enableSms}")
+    public void setENABLESMS(Boolean ENABLESMS) {
+        PhoneCodeController.ENABLESMS = ENABLESMS;
+    }
 
     @GetMapping("/code/sms")
     public Message getPhoneCode(HttpServletRequest request){
@@ -32,9 +47,14 @@ public class PhoneCodeController {
         }
         String code = createCode();
         JedisUtils.setex(num, EXPIRETIME, code);
-        //发送验证码
-//        String s = ZhenziSmsUtils.sendSMS(num, code);
-//        System.out.println(s);
+
+        if(ENABLESMS){
+            String s = ZhenziSmsUtils.sendSMS(num, code);
+            System.out.println(s);
+        }else {
+            System.out.println("手机验证码:" + code);
+        }
+
         return MessageUtil.success("成功发送验证码，请耐心等待");
     }
 
@@ -46,7 +66,7 @@ public class PhoneCodeController {
         }
 
         String code = stringBuffer.toString();
-        System.out.println("手机验证码:" + code);
+
         return code;
     }
 

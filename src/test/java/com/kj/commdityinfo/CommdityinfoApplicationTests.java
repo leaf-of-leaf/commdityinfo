@@ -42,10 +42,11 @@ class CommdityinfoApplicationTests {
     }
 
     /**
-     * 缓存插入
+     * 库存的缓存
      */
     @Test
     public void run(){
+        //保存时，key为String
 //        try{
 //            addItemNumToCache.save(addItemNumToCache.getItems());
 //        }catch (Exception e){
@@ -53,8 +54,12 @@ class CommdityinfoApplicationTests {
 //        }
     }
 
+    /**
+     * 首页的缓存
+     */
     @Test
     public void run2(){
+        //保存时，key为二进制
 //        IntStream.range(1,13).forEach(cateId->{
 //            try{
 //                List<Item> itemsByCateId = itemService.findItemsByCateId(cateId, 1, 20);

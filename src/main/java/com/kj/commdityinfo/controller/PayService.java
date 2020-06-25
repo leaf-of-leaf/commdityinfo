@@ -183,6 +183,6 @@ public class PayService {
         }
         System.out.println(params);
         PrintWriter writer = response.getWriter();
-        response.sendRedirect("http://47.115.1.253/commdityinfo/returnUrl");
+        response.sendRedirect("http://47.115.1.253/index.html#/returnUrl");
     }
 }

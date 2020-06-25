@@ -10,7 +10,9 @@ import com.kj.commdityinfo.mapper.UserOrderMapper;
 import com.kj.commdityinfo.security.utils.JedisUtils;
 import com.kj.commdityinfo.service.OrderItemService;
 import com.kj.commdityinfo.service.UserOrderService;
+import com.kj.commdityinfo.utils.CacheItemPage;
 import com.kj.commdityinfo.utils.DoubleUtil;
+import com.kj.commdityinfo.utils.MyThreadPool;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +40,10 @@ public class UserOrderServiceImpl implements UserOrderService {
 
     @Autowired(required = false)
     private ItemMapper itemMapper;
+
+    @Autowired
+    private MyThreadPool myThreadPool;
+
 
 
 
@@ -92,7 +98,7 @@ public class UserOrderServiceImpl implements UserOrderService {
     }
 
     @Override
-    @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
+//    @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
     public void deleteUserOrderByOrderNum(String orderNum) {
 
         if(orderNum == null){
@@ -102,9 +108,15 @@ public class UserOrderServiceImpl implements UserOrderService {
         List<OrderItem> orderItemByOrderNum = orderItemService.findOrderItemByOrderNum(orderNum);
         //把redis中的库存加回来,同时mysql库存也要加回来
         for (OrderItem orderItem : orderItemByOrderNum){
+            //原子性操作，不用加锁
             JedisUtils.hincrby("item" + orderItem.getItemId(), "num",Long.valueOf(orderItem.getBuyCounts().toString()));
             //因为通过主键索引，且为innoDB,所以默认为行锁 且为num = num + #{num}
-            itemMapper.updateItemByitemIdAndNum(orderItem.getItemId(),orderItem.getBuyCounts());
+            //加入任务队列中执行就好
+            myThreadPool.add(()->itemMapper.updateItemByitemIdAndNum(orderItem.getItemId(),orderItem.getBuyCounts()));
+            //如果涉及到首页中数据，则将对应首页的缓存置空
+            if(CacheItemPage.getCacheItemId().contains(orderItem.getItemId())){
+                JedisUtils.del(JedisUtils.getCacheName(orderItem.getItem().getCateId()), 1);
+            }
         }
 
         //删除订单项
@@ -119,7 +131,7 @@ public class UserOrderServiceImpl implements UserOrderService {
 
     @Override
     //当多个商品扣除数量时,当其中一个过长的阻塞，直接回滚
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.READ_COMMITTED, timeout = 5)
+//    @Transactional(rollbackFor = Exception.class,isolation = Isolation.READ_COMMITTED, timeout = 5)
     public void insertUserOrder(UserOrder userOrder) throws Exception {
         if(userOrder == null){
             throw new SystemException("参数有误");
@@ -131,6 +143,8 @@ public class UserOrderServiceImpl implements UserOrderService {
 
         List<OrderItem> orderItemByUserId = orderItemService.findOrderItemByUserIdAndOrderNum(userOrder.getUserId(), "");
         Double total = 0d;
+
+        List<Runnable> runnables = new LinkedList<>();
 
         //将购物车中的每个商品的库存减去
         Transaction multi = null;
@@ -147,8 +161,7 @@ public class UserOrderServiceImpl implements UserOrderService {
                 do{
                     //分布式锁的实现
                     if(!JedisUtils.setnx("lock_item"+ orderItem.getItemId() +"_sub", "1").equals(Long.valueOf(0))){
-                        System.out.println("123");
-                        subNum(orderItem.getItemId(),numInRedis,orderItem.getBuyCounts(), multi);
+                        subNum(orderItem.getItemId(),numInRedis,orderItem.getBuyCounts(), multi, runnables);
                         break;
                     }
                     Thread.sleep(((int)(Math.random() * 2) + 1));
@@ -156,12 +169,21 @@ public class UserOrderServiceImpl implements UserOrderService {
                 if(i == 2){
                     throw new SystemException("锁竞争激烈，两次均为拿到锁");
                 }
+                //执行商品的扣除时，如果该商品在首页中，将首页缓存删除
+                if(CacheItemPage.getCacheItemId().contains(orderItem.getItemId())){
+                    //key为二进制,状态为1
+                    JedisUtils.del(JedisUtils.getCacheName(orderItem.getItem().getCateId()), 1);
+                }
+            }
+            //没出错误时执行插入操作，将要执行的任务放入线程池中自己执行
+            for (Runnable runnable: runnables){
+                myThreadPool.add(runnable);
             }
             //redis结束事务
-
-            System.out.println("事务执行完成");
             multi.exec();
+            System.out.println("事务执行完成");
         }catch (Exception e){
+            runnables.clear();
             multi.discard();
             throw new SystemException(e.getMessage());
         }
@@ -209,7 +231,7 @@ public class UserOrderServiceImpl implements UserOrderService {
     /**
      * 业务逻辑操作
      */
-    private void subNum(Integer itemId, Integer numInRedis, Integer numInRequest, Transaction transaction) throws Exception{
+    private void subNum(Integer itemId, Integer numInRedis, Integer numInRequest, Transaction transaction, List<Runnable> runnables) throws Exception{
 
         JedisUtils.expire("lock_item" + itemId + "_sub", 5);
 
@@ -220,17 +242,24 @@ public class UserOrderServiceImpl implements UserOrderService {
             map.put("num", result + "");
             transaction.hmset("item" + itemId, map);
             try{
-                itemMapper.updateItemByitemIdAndNum(itemId, (-numInRequest));
+//                myThreadPool.add(()->{
+//                    itemMapper.updateItemByitemIdAndNum(itemId, (-numInRequest));
+//                });
+                runnables.add(()->{
+                    itemMapper.updateItemByitemIdAndNum(itemId, (-numInRequest));
+                });
             } catch (Exception e){
-                throw new SystemException("由于长久的阻塞,update失败");
+                throw new SystemException(e.getMessage());
             }
         }else {
             //操作完成以后手动释放锁
-            JedisUtils.del("lock_item"+ itemId +"_sub");
+            JedisUtils.del("lock_item"+ itemId +"_sub", 0);
             throw new SystemException("检测到购买数量与库存不符,请对商品数量进行核查");
         }
 
         //操作完成以后手动释放锁
-        JedisUtils.del("lock_item"+ itemId +"_sub");
+        JedisUtils.del("lock_item"+ itemId +"_sub", 0);
     }
 }
+
+

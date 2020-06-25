@@ -9,7 +9,9 @@ import com.kj.commdityinfo.service.ItemService;
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
 import java.util.List;
 
@@ -23,6 +25,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired(required = false)
     private ItemMapper itemMapper;
+
+    @Value("${page.pageSize}")
+    private Integer pageSize;
 
     @Override
     public List<Item> findAllItem() throws Exception {
@@ -41,10 +46,12 @@ public class ItemServiceImpl implements ItemService {
 
         ItemExample itemExample = new ItemExample();
 
+        //获取缓存中的信息，如果存在则返回，不存在则会到数据库中查询
         if(page == 1){
             Object o = JedisUtils.get(JedisUtils.getCacheName(cateId));
-            if(o != null && o instanceof List && pageSize <= 20){
+            if(o != null && o instanceof List && pageSize <= pageSize){
                 List<Item> items = (List<Item>) o;
+                System.out.println("走缓存");
                 return items;
             }
         }
@@ -54,7 +61,14 @@ public class ItemServiceImpl implements ItemService {
         itemExample.setOffset(pageSize);
 
         itemExample.createCriteria().andCateIdEqualTo(cateId);
-        return itemMapper.selectByExample(itemExample);
+        List<Item> items = itemMapper.selectByExample(itemExample);
+
+        //将首页缓存到redis中
+        if(page == 1 && pageSize <= pageSize){
+            JedisUtils.set(JedisUtils.getCacheName(cateId), items);
+        }
+        System.out.println("走数据库");
+        return items;
     }
 
     @Override
@@ -116,4 +130,5 @@ public class ItemServiceImpl implements ItemService {
         itemExample.createCriteria().andNameLike("%" + itemName + "%");
         return itemMapper.countByExample(itemExample);
     }
+
 }
